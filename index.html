@@ -39,26 +39,39 @@
                 <!-- Navigation -->
                 <div class="nav-tabs">
                     <!--nav-first element-->
-                    <div class="nav">
+
+                    <a href="#" class="nav">
                         <img class="nav-tabs-img" src="./assets/home 1.svg" alt="" />
                         <p class="tab-name">Home</p>
-                    </div>
-                    <div class="nav" id="nav-doc">
+                    </a>
+
+
+                    <a href="" class="nav">
                         <img class="nav-tabs-img" src="./assets/file-text 1.svg" alt="" />
                         <p class="tab-name">Documents</p>
-                    </div>
-                    <div class="nav">
+                    </a>
+
+
+
+                    <a href="" class="nav">
                         <img class="nav-tabs-img" src="./assets/message-circle 1.svg" alt="" />
                         <p class="tab-name">Chat with Neptune</p>
-                    </div>
-                    <div class="nav">
+                    </a>
+
+
+                    <a href="" class="nav">
                         <img class="nav-tabs-img" src="./assets/help-circle 1.svg" alt="" />
                         <p class="tab-name">Help</p>
-                    </div>
-                    <div class="nav">
+                    </a>
+
+
+
+                    <a href="" class="nav">
                         <img class="nav-tabs-img" src="./assets/settings 1.svg" alt="" />
                         <p class="tab-name">Settings</p>
-                    </div>
+                    </a>
+
+
                 </div>
             </div>
             <!--nav-second element-->
@@ -98,12 +111,60 @@
                 <div id="title-head">
                     <h1>My Documents</h1>
                 </div>
-                <div class="searchbox">
-                    <input id="search-box" type="text" placeholder="Search documents" />
-                    <img class="search-logo" src="./assets/Layer_1.svg" alt="" />
+                <div class="inner-tab">
+                    <div class="crud-btn">
+                        <button id="add-btn">Add</button>
+                        <button class="delete-btn">Delete</button>
+
+                    </div>
+
+                    <div class="searchbox">
+                        <input id="search-box" type="text" placeholder="Search documents" />
+                        <img class="search-logo" src="./assets/Layer_1.svg" alt="" />
+                    </div>
                 </div>
             </div>
 
+          <div id="form-div">
+              <!--form-->
+            <form  action="">
+                <div id="form">
+
+                    <h1 style="font-family: Spline Sans, sans-serif;font-weight: 500;font-size: 30px;">Add Document</h1>
+                    <br>
+
+                    <div class="title_div">
+                        <label class="title_input" name="document" for="title_doc">Document title</label>
+                        <br>
+                        <input class="title_input form_input" id="title_doc" placeholder="Enter document title"
+                            name="document" type="text">
+                    </div>
+
+                    <br>
+                    <div>
+                        <label class="title_input" for="status_label">Status</label>
+                        <br>
+                        <select class="title_input form_input" name="" id="status_label">
+                            <option class="title_input form_input" value="Select Status">Select Status</option>
+
+                            <option class="title_input form_input" value="Needs Signing">Needs Signing</option>
+                            <option class="title_input form_input" value="Pending">Pending</option>
+
+                            <option class="title_input form_input" value="Completed">Completed</option>
+
+                        </select>
+                    </div>
+
+                    <br>
+                    <div>
+                        <button type="reset" class="delete-btn ">Cancel</button>
+                        <button type="submit" class="add_btn_form" id="add_btn_id">Add</button>
+                    </div>
+
+
+                </div>
+            </form>
+          </div>
             <!-- Table -->
             <table style="border-collapse: collapse">
                 <thead>
@@ -112,131 +173,16 @@
                             <input type="checkbox" />
                             <img id="icon-small" src="./assets/Icon Right.svg" alt="" />
                         </th>
-                        <th style="text-align: left; color: #2A2A2A; font-weight: 600;">Document Name</th>
-                        <th style="text-align: left ; color: #2A2A2A;font-weight: 600;">Status</th>
-                        <th style="text-align: left ; color: #2A2A2A;font-weight: 600;">Last Modified</th>
+                        <th class="th-style">Document Name</th>
+                        <th class="th-style">Status</th>
+                        <th class="th-style">Last Modified</th>
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td style="width: 40%;">Title of the Document Goes Here</td>
-                        <td>
-                            <button style="width: 119px;height: 26px;border-radius: 22px;padding: 2px 6px;border:none;background-color: #436d7c;color: white;">Needs Signing
-                            </button>
-                        </td>
-                        <td style="color: #626D82;">
-                            10/22/2024 <br />
-                            <span>2:01 pm</span>
-                        </td>
-                        <td><button class="btn-main">Sign now</button>
-                        <img class="settings" src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
-                                alt="" />
-                        </td>
-                        
-                    </tr>
-
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td style="width: 40%;">Title of the Document Goes Here</td>
-                        <td>
-                            <button style="padding: 2px 6px; border-radius: 50px ;border:none;width: 85px;height: 26px;border-radius: 22px; color: #626D82;
-">
-                                Pending
-                            </button>
-                            <br />
-                           <i style="color: #ccd1d7;">Waiting for <span style=" font-style: italic;color: #626D82; ">1 person</span></i>
-                        </td>
-                        <td style="color: #626D82;">
-                            10/22/2024 <br />
-                            <span>2:01 pm</span>
-                        </td>
-                        <td><button class="btn-main">Preview</button>
-                         <img class="settings" src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
-                                alt="" /></td>
-                        
-                    </tr>
-
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td style="width: 40%;">Title of the Document Goes Here</td>
-                        <td>
-                            <button style="padding: 2px 6px; border-radius: 50px ;border:none;width: 85px;height: 26px;border-radius: 22px; color: #626D82;
-">
-                                Pending
-                            </button>
-                            <br />
-                            <i style="color: #ccd1d7;">Waiting for <span style=" font-style: italic;color: #626D82; ">1 person</span></i>
-                        </td>
-                        <td style="color: #626D82;">
-                            10/22/2024 <br />
-                            <span>2:01 pm</span>
-                        </td>
-                        <td><button class="btn-main">Preview</button>
-                         <img class="settings" src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
-                                alt="" />
-                        </td>
-                        
-                    </tr>
-
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td style="width: 40%;">Title of the Document Goes Here</td>
-                        <td>
-                            <button style="padding: 2px 6px;border-radius: 50px;border:none;background-color: #d3f7b5;color:#1f4451;width: 85px;height: 23px;border-radius: 22px;">
-                                Completed
-                            </button>
-                        </td>
-                        <td style="color: #626D82;">
-                            10/22/2024 <br />
-                            <span>2:01 pm</span>
-                        </td>
-                        <td><button class="btn-main">Download PDF</button>
-                        <img class="settings" src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
-                                alt="" />
-                        
-                           
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td style="width: 40%;">Title of the Document Goes Here</td>
-                        <td>
-                            <button style="padding: 2px 6px;border-radius: 50px;border:none;background-color: #d3f7b5;color:#1f4451;width: 85px;height: 23px;border-radius: 22px;">
-                                Completed
-                            </button>
-                        </td>
-                        <td style="color: #626D82;">
-                            10/22/2024 <br />
-                            <span>2:01 pm</span>
-                        </td>
-                        <td><button class="btn-main">Download PDF</button>
-                         <img class="settings" src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
-                                alt="" /></td>
-                       
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td style="width: 40%;">Title of the Document Goes Here</td>
-                        <td>
-                            <button style="padding: 2px 6px;border-radius: 50px;border:none;background-color: #d3f7b5;color:#1f4451;width: 85px;height: 23px;border-radius: 22px;">
-                                Completed
-                            </button>
-                        </td>
-                        <td style="color: #626D82;">
-                            10/22/2024 <br />
-                            <span>2:01 pm</span>
-                        </td>
-                        <td><button class="btn-main">Download PDF</button>
-                        <img class="settings" src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
-                                alt="" />
-                        </td>
-                        
-                    </tr>
+                <tbody id="tbody">
+                   
                 </tbody>
             </table>
 
@@ -244,6 +190,7 @@
 
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

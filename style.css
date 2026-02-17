@@ -8,6 +8,7 @@
   height: 100%;
   width: 100%;
   display: flex;
+  position: relative;
 }
 
 .navbar {
@@ -15,20 +16,24 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   align-items: center;
   gap: 35vh;
-  padding-inline: 30px;
-  padding-block: 10px;
+  padding-inline: 5px;
+  padding-block: 5px;
 }
 
 .nav-1 {
-  display: flex;
+display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 35px;
-  padding: 10px 10px;
+  padding: 10px;
+
+  
 }
+
+
 .union-img {
   width: 168px;
   height: 31px;
@@ -65,7 +70,12 @@
 .nav-tabs {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+
+  gap: 22px;
+}
+.nav-tabs-img{
+  height: 24px;
+  width: 24px;
 }
 .nav {
   display: flex;
@@ -73,20 +83,36 @@
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
-  vertical-align: middle;
+
   color: #626d82;
   padding-inline: 10px;
 }
 
-#nav-doc {
+.nav-tabs a{
+  text-decoration: none;
+}
+
+.nav:hover{
+ display: flex;
+  gap: 5%;
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+background-color: #d3f7b5;
+  color: #626d82;
+  padding: 10px;
+  border-radius: 5px;
+ 
+  
+}
+
+/* #nav-doc {
   display: flex;
   align-items: center;
-  width: 286px;
-  height: 51px;
-  border-radius: 6px;
+  
   background-color: #d3f7b5;
   padding: 10px;
-}
+} */
 .nav-2 {
   display: flex;
   flex-direction: column;
@@ -154,6 +180,9 @@
   color: #436d7c;
 }
 
+
+
+
 #right-dropdown {
   width: 20px;
   height: 20px;
@@ -171,6 +200,77 @@
   justify-content: space-between;
 }
 
+.inner-tab{
+  display: flex;
+  justify-content: space-between;
+  gap: 8%;
+}
+.crud-btn{
+  display: flex;
+  justify-content: space-between;
+  gap:3%;
+}
+#add-btn{
+  border: none;
+  color: white;
+  padding: 10px 22px;
+   background-color: rgb(113, 164, 87);
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn{
+  border: none;
+  color: white;
+  padding: 10px 22px;
+
+   background-color: rgb(247, 117, 117);
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.title_div{
+ 
+  display: flex;
+  flex-direction: column;
+}
+
+.title_input{
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  height: 50%;
+  gap: 10%;
+   border-radius: 5px;
+   border:none;
+}
+
+.form_input{
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 5px 5px;
+  border: 0.5px solid #b5bdcd;
+}
+.add_btn_form{
+   border: none;
+  color: white;
+  padding: 10px 22px;
+   background-color: rgb(113, 164, 87);
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 #title-head h1 {
   font-family: Zin Display;
   font-weight: 400;
@@ -179,7 +279,7 @@
 
 .searchbox {
   position: relative;
-  width: 25%;
+  width: 70%;
   height: 37px;
 }
 #search-box {
@@ -197,29 +297,51 @@
 }
 
 table {
-  width: 100%;
-  height: 50%;
+  /* width: 100%;
+  height: 50%; */
   border-radius: 8px;
   border-width: 0.5px;
   background-color: #ffffff;
+ 
 }
 
 thead {
   text-align: left;
 }
 
-th,
-td {
+.table-td{
+font-family: "Spline Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+    padding: 15px;
+
+  color: #436d7c;
+  border-bottom: 1px solid #d4d6d9;
+}
+
+th{
   font-family: "Spline Sans", sans-serif;
   font-size: 16px;
   font-weight: 500;
-  padding: 20px;
+  
   color: #436d7c;
   border-bottom: 1px solid #d4d6d9;
 }
 .settings {
   position: relative;
   top: 5px;
+}
+
+.status_btn{
+width: 139px;
+height: 23px;
+border-radius: 22px;
+padding: 2px 6px;
+border:none;
+background-color: #436D7C;
+
+color: white;
+
 }
 
 .btn-main {
@@ -231,3 +353,47 @@ td {
   color: #626d82;
   background-color: #ffffff;
 }
+
+#doc-title{
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+#doc-title-input{
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+ 
+}
+
+.th-style{
+  text-align: left; 
+  color: #2A2A2A; 
+  font-weight: 600;
+}
+
+#form-div{
+  height: 100vh;
+  width: 100vw;
+  border-radius: 10px;
+  display: none;  
+}
+
+#form{
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #537bca;
+  width: 35%;
+  height: 30%;
+  top: 20%;
+  left: 40%;
+  
+  padding: 10px;
+  justify-content: center;
+
+position: absolute;
+
+}
+
