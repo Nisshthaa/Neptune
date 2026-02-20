@@ -399,16 +399,6 @@ td {
   height: 60px;
 }
 
-td:nth-child(3) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* height: 60px; */
-  /* padding-top: 12px; */
-  /* background: #000; */
-}
-
 .td-items {
   font-family: "Spline Sans", sans-serif;
   font-weight: 600;
@@ -422,8 +412,8 @@ tr:last-child td {
   border-bottom: none;
 }
 .btn-status {
-  width: 139px;
-  height: 12px;
+  /* width: 139px; */
+  /* height: 12px; */
   border: 1px solid #b5bdcd;
   border-radius: 5px;
   border-width: 1px;
@@ -432,6 +422,11 @@ tr:last-child td {
   font-weight: 500;
   font-size: 14px;
   text-align: center;
+  padding: 10px;
+}
+
+.td-btn-status{
+  vertical-align: center;
 }
 
 .hidden {

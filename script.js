@@ -7,16 +7,14 @@ let settings = document.querySelector("settings");
 let settings_div = document.querySelector("settings-div");
 
 //logout
-let logout = document.querySelector("#icon-dropdown")
-let logout_div = document.querySelector(".logout-div")
+let logout = document.querySelector("#icon-dropdown");
+let logout_div = document.querySelector(".logout-div");
 logout.addEventListener("click", function (e) {
-  if (logout_div.style.display = "none") {
+  if ((logout_div.style.display = "none")) {
     logout_div.style.display = "block";
+  } else {
+    logout_div.style.display = "none";
   }
-  else {
-    logout_div.style.display = "none"
-  }
-
 });
 document.addEventListener("click", function (e) {
   // If form is open
@@ -24,7 +22,6 @@ document.addEventListener("click", function (e) {
     // Check if click is outside the form AND not the add button
     if (!logout_div.contains(e.target) && !logout.contains(e.target)) {
       logout_div.style.display = "none";
-
     }
   }
 });
@@ -33,7 +30,7 @@ document.addEventListener("click", function (e) {
 delete_btn.addEventListener("click", function () {
   form_data.style.display = "none";
   main.style.filter = "none";
-})
+});
 
 // add-items
 add_btn.addEventListener("click", function (e) {
@@ -85,6 +82,7 @@ form.addEventListener("submit", function (e) {
   localStorage.setItem("userDetails", JSON.stringify(userData));
 
   displayData();
+  form.reset()
 });
 
 // add button working
@@ -118,9 +116,9 @@ let displayData = () => {
           <tr>
           <td ><input type="checkbox"></td>
           <td class="td-items">${element.title}</td>
-          <td class="td-items ${btn_class}">${element.status}</td>
+          <td class="td-items "><span class=${btn_class}>${element.status}</span></td>
           <td class="td-items date-text">${date}<br>${time}</td>
-          <td class=" btn-status">${button}</td>
+          <td class="td-btn-status"><span class="btn-status">${button}</span></td>
 
           <td class="settings-wrapper">
             <img src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
