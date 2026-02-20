@@ -180,6 +180,7 @@ footer p {
   height: 34px;
   border-radius: 5px;
   background-color: #1f4451;
+  cursor: pointer;
 }
 
 #btn-contact p {
@@ -404,7 +405,7 @@ tr:last-child td {
   border-bottom: none;
 }
 .btn-status {
-  
+  width: 500px;
   border: 1px solid #b5bdcd;
   border-radius: 5px;
   border-width: 1px;
@@ -414,6 +415,7 @@ tr:last-child td {
   font-size: 14px;
   text-align: center;
   padding: 10px;
+  cursor: pointer;
 }
 
 .td-btn-status{
