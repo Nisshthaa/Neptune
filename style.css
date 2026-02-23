@@ -1,573 +1,707 @@
-@import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap");
-@font-face {
-  font-family: "CarnokyType Zin Display Demo";
-  src: url("fonts/CarnokyType - Zin Display Demo.otf") format("opentype");
-}
-
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-.main {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  position: relative;
-}
-
-nav {
-  width: 18%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  align-items: left;
-  gap: 35vh;
-  padding-inline: 5px;
-  padding-block: 5px;
-}
-
-.profile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 35px;
-  padding: 10px;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.logout-div {
-  position: absolute;
-  display: none;
-}
-
-.btn-logout {
-  width: 100px;
-  height: 32px;
-  font-size: 12px;
-  font-family: "Spline Sans";
-  font-weight: 500;
-  border-radius: 6px;
-  border: 1px solid #b5bdcd;
-  background: #ffffff;
-  color: #626d82;
-  cursor: pointer;
-}
-
-.union-img {
-  width: 168px;
-  height: 31px;
-}
-
-.logo-name {
-  width: 168px;
-  height: 31px;
-}
-
-.logo-img {
-  width: 41px;
-  height: 41px;
-}
-
-.user-profile {
-  display: flex;
-  justify-content: space-between;
-  border-radius: 6px;
-  border: 0.5px solid #b5bdcd;
-  padding: 10px 10px;
-}
-
-.user {
-  display: flex;
-  gap: 10px;
-}
-
-#u-name {
-  font-family: "Spline Sans";
-  font-weight: 600;
-  font-size: 16px;
-  color: #2a2a2a;
-}
-
-#u-user {
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 12px;
-  color: #626d82;
-}
-
-.icon-dropdown {
-  width: 19px;
-  height: 19px;
-  border-radius: 6px;
-}
-
-.nav-tabs {
-  display: flex;
-  flex-direction: column;
-
-  gap: 22px;
-}
-
-.items-img {
-  height: 24px;
-  width: 24px;
-}
-
-.items {
-  display: flex;
-  gap: 5%;
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 16px;
-  color: #626d82;
-  padding-inline: 10px;
-}
-
-.nav-tabs a {
-  text-decoration: none;
-}
-
-.items:hover {
-  display: flex;
-
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 16px;
-  background-color: #d3f7b5;
-  color: #626d82;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 23px;
-  padding: 10px;
-}
-
-#phone {
-  width: 27px;
-  height: 27px;
-  border-width: 2.5px;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-footer h1 {
-  font-family: "Spline Sans";
-  font-weight: 550;
-  font-size: 28px;
-  color: #1f4451;
-}
-
-footer p {
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 16px;
-}
-
-#btn-contact {
-  width: 97px;
-  height: 34px;
-  border-radius: 5px;
-  background-color: #1f4451;
-  cursor: pointer;
-}
-
-#btn-contact p {
-  font-family: "Spline Sans";
-  font-weight: 600;
-  font-size: 12px;
-  color: #ffffff;
-}
-
-.container {
-  width: 88%;
-  height: 100vh;
-  background-color: #f5f0ea;
-  display: flex;
-  flex-direction: column;
-  padding-block: 30px;
-  padding-inline: 70px;
-  gap: 4%;
-}
-
-.tab-1 {
-  display: flex;
-}
-
-.item-home {
-  font-family: "Spline Sans";
-  font-weight: 500;
-  font-size: 16px;
-  color: #436d7c;
-}
-
-#right-dropdown {
-  width: 20px;
-  height: 20px;
-}
-
-#item-document {
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 16px;
-  color: #b5bdcd;
-}
-
-.tab-2 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.head-2 {
-  display: flex;
-  justify-content: space-between;
-  gap: 8%;
-}
-
-.crud-btn {
-  display: flex;
-  justify-content: space-between;
-  gap: 3%;
-}
-
-#add-btn {
-  width: 100px;
-  height: 42px;
-  font-size: 16px;
-  font-family: "Spline Sans";
-  font-weight: 500;
-  border-radius: 6px;
-  border: none;
-  background: #ed8c8c;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.delete-btn {
-  width: 100px;
-  height: 42px;
-  font-size: 16px;
-  font-family: "Spline Sans";
-  font-weight: 500;
-  border-radius: 6px;
-  border: none;
-  background: #84cdac;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.title_div {
-  display: flex;
-  flex-direction: column;
-}
-
-.input-style {
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 20px;
-  height: 60%;
-  gap: 10%;
-  border-radius: 5px;
-  border: none;
-}
-
-.form_input {
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 16px;
-  padding: 5px 5px;
-  border: 0.5px solid #b5bdcd;
-}
-
-.add_btn_form {
-  width: 100px;
-  height: 42px;
-  font-size: 16px;
-  font-family: "Spline Sans";
-  font-weight: 500;
-  border-radius: 6px;
-  border: none;
-  background: #ed8c8c;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-#head-1 h1 {
-  font-family: "Zin Display";
-  font-weight: 400;
-  font-size: 40px;
-}
-
-.searchbox {
-  position: relative;
-  width: 100%;
-  border: 0.5px solid #b5bdcd;
-  height: 37px;
-}
-
-#search-box {
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 2px;
-  padding: 10px;
-}
-
-.search-logo {
-  position: absolute;
-  top: 8px;
-  right: 7px;
-}
-
-.settings {
-  position: relative;
-  top: 5px;
-}
-
-.status_btn {
-  width: 139px;
-  height: 23px;
-  border-radius: 22px;
-  padding: 2px 6px;
-  border: none;
-  background-color: #436d7c;
-
-  color: white;
-}
-
-.btn-main {
-  width: 134px;
-  height: 34px;
-  border-radius: 5px;
-  border-width: 1px;
-  font-weight: 500;
-  color: #626d82;
-  background-color: #ffffff;
-}
-
-#doc-title {
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 16px;
-}
-
-#doc-title-input {
-  font-family: "Spline Sans";
-  font-weight: 400;
-  font-size: 16px;
-}
-
-table {
-  width: 100%;
-  border-radius: 8px;
-  border-width: 0.5px;
-  background-color: #ffffff;
-  border: 0.5px solid #b5bdcd;
-}
-
-th {
-  font-family: "Spline Sans";
-  font-weight: 600;
-  font-size: 18px;
-  text-align: left;
-}
-
-table,
-th,
-tr,
-td {
-  padding: 10px 10px;
-  border-bottom: 1px solid #e8ecf1;
-  height: 60px;
-}
-
-.td-items {
-  font-family: "Spline Sans";
-  font-weight: 600;
-  font-size: 16px;
-  color: #436d7c;
-  padding: 10px 5px;
-  height: 60px;
-}
-
-tr:last-child td {
-  border-bottom: none;
-}
-.btn-status {
-  width: 134px;
-  border: 1px solid #b5bdcd;
-  border-radius: 5px;
-  border-width: 1px;
-  color: #626d82;
-  background-color: #ffffff;
-  font-family: "Inter";
-  font-weight: 500;
-  font-size: 14px;
-  text-align: center;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.td-btn-status {
-  vertical-align: center;
-}
-
-.hidden {
-  display: none;
-}
-
-#main-form {
-  height: 100vh;
-  width: 100vw;
-  border-radius: 10px;
-}
-
-#form-div {
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  box-shadow: 10px;
-  width: 30%;
-  height: 40%;
-  top: 20%;
-  left: 40%;
-  border-radius: 10px;
-  padding: 20px;
-  justify-content: center;
-
-  position: absolute;
-}
-
-form h1 {
-  font-family: "Spline Sans";
-  font-weight: 500;
-  font-size: 30px;
-}
-
-.signNow,
-.pending,
-.completed {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 30px;
-  border-radius: 20px;
-  font-size: 16px;
-  font-family: "Inter";
-  font-weight: 500;
-}
-
-.signNow {
-  background-color: #436d7c;
-  color: #ffffff;
-}
-
-.pending {
-  background-color: #e8ecf1;
-  color: #626d82;
-}
-
-.completed {
-  color: #1f4451;
-  background-color: #d3f7b5;
-}
-
-.for-pending {
-  display: none;
-}
-
-.for-pending label {
-  font-size: 16px;
-  font-family: "Inter";
-  font-weight: 500;
-}
-
-.for-pending input,
-.for-pending select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  outline: none;
-}
-
-.date-text {
-  font-family: "Inter";
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 16px;
-  color: #626d82;
-}
-
-.settings-wrapper {
-  position: relative;
-}
-
-.settings-div {
-  display: none;
-  position: absolute;
-  right: 25;
-  top: 25px;
-  background: white;
-  border-radius: 6px;
-  padding: 5px;
-  gap: 3px;
-  border: 1px solid #ddd;
-  flex-direction: column;
-  z-index: 100;
-}
-
-.edit {
-  width: 100px;
-  height: 32px;
-  font-size: 16px;
-  font-family: "Spline Sans";
-  font-weight: 500;
-  border-radius: 6px;
-  background: #ed8c8c;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-}
-
-.delete {
-  width: 100px;
-  height: 32px;
-  font-size: 16px;
-  font-family: "Spline Sans";
-  font-weight: 500;
-  border-radius: 6px;
-  background: #84cdac;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-}
-
-.waiting {
-  font-family: "Inter";
-  font-weight: 500;
-  font-style: italic;
-  color: #b5bdcd;
-}
-
-.waiting-person {
-  font-family: "Inter";
-  font-weight: 500;
-  font-style: italic;
-  color: #436d7c;
-}
+  @import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap");
+
+  @font-face {
+    font-family: "CarnokyType Zin Display Demo";
+    src: url("fonts/CarnokyType - Zin Display Demo.otf") format("opentype");
+  }
+
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+
+  }
+
+
+
+  .main {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  nav {
+    width: 20%;
+    min-width: 260px;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 10px;
+    background: white;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 35px;
+    padding: 10px;
+  }
+
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .logout-div {
+    position: absolute;
+    display: none;
+  }
+
+  .btn-logout {
+    width: 100px;
+    height: 32px;
+    font-size: 16px;
+    position: absolute;
+    top: 4px;
+    font-family: "Spline Sans";
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid #6b7280;
+    color: #6b7280;
+    background-color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .btn-logout:hover {
+    background-color: #6b7280;
+    color: #FFFFFF;
+  }
+
+  .union-img {
+    width: 168px;
+    height: 31px;
+  }
+
+  .logo-name {
+    width: 168px;
+    height: 31px;
+  }
+
+  .logo-img {
+    width: 41px;
+    height: 41px;
+  }
+
+  .user-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    border: 0.5px solid #b5bdcd;
+    padding: 10px 15px;
+  }
+
+  .user {
+    display: flex;
+    gap: 8px;
+  }
+
+  #u-name {
+    font-family: "Spline Sans";
+    font-weight: 600;
+    font-size: 16px;
+    color: #2a2a2a;
+  }
+
+  #u-user {
+    font-family: "Spline Sans";
+    font-weight: 400;
+    font-size: 12px;
+    color: #626d82;
+  }
+
+  .icon-dropdown {
+    width: 19px;
+    height: 19px;
+    border-radius: 6px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+  }
+
+  .items-img {
+    height: 24px;
+    width: 24px;
+  }
+
+  .items-img-doc {
+    background-color: #d3f7b5;
+    border-radius: 10px;
+    height: 50px;
+  }
+
+  .items {
+    display: flex;
+    gap: 5%;
+    padding: 10px;
+    font-family: "Spline Sans";
+    font-weight: 400;
+    font-size: 16px;
+    color: #626d82;
+    padding-inline: 10px;
+  }
+
+  .nav-tabs a {
+    text-decoration: none;
+  }
+
+  .items:hover {
+
+    background-color: #e9f8de;
+    border-radius: 10px;
+
+
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 23px;
+    padding: 10px;
+  }
+
+  #phone {
+    width: 27px;
+    height: 27px;
+    border-width: 2.5px;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  footer h1 {
+    font-family: "Spline Sans";
+    font-weight: 550;
+    font-size: 28px;
+    color: #1f4451;
+  }
+
+  footer p {
+    font-family: "Spline Sans";
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  #btn-contact {
+    width: 97px;
+    height: 34px;
+    border-radius: 5px;
+    background-color: #1f4451;
+    cursor: pointer;
+  }
+
+  #btn-contact:hover {
+    background-color: #2b5b6c;
+  }
+
+  #btn-contact p {
+    font-family: "Spline Sans";
+    font-weight: 600;
+    font-size: 12px;
+    color: #ffffff;
+  }
+
+  .container {
+    flex: 1;
+    min-height: 100vh;
+    padding: 30px 60px;
+    width: 88%;
+    background-color: #f5f0ea;
+    display: flex;
+    flex-direction: column;
+    padding-block: 30px;
+    padding-inline: 70px;
+    gap: 4%;
+  }
+
+  .tab-1 {
+    display: flex;
+  }
+
+  .item-home {
+    font-family: "Spline Sans";
+    font-weight: 500;
+    font-size: 16px;
+    color: #436d7c;
+  }
+
+  #right-dropdown {
+    width: 20px;
+    height: 20px;
+  }
+
+  #item-document {
+    font-family: "Spline Sans";
+    font-weight: 400;
+    font-size: 16px;
+    color: #b5bdcd;
+  }
+
+  .tab-2 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .head-2 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .crud-btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 3%;
+  }
+
+  #add-btn {
+    width: 100px;
+    height: 42px;
+    font-size: 16px;
+    font-family: "Spline Sans";
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid #6b7280;
+    color: #6b7280;
+    background-color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  #add-btn:hover {
+    background-color: #6b7280;
+    color: #FFFFFF;
+  }
+
+  .delete-btn {
+    width: 100px;
+    height: 42px;
+    font-size: 16px;
+    font-family: "Spline Sans";
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid #6b7280;
+    color: #6b7280;
+    background-color: #FFFFFF;
+    cursor: pointer;
+  }
+
+
+
+  .delete-btn:hover {
+    background-color: #6b7280;
+    color: #FFFFFF;
+  }
+
+
+  .title_div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-style {
+    font-family: "Spline Sans";
+    font-weight: 400;
+    font-size: 25px;
+    height: 60%;
+    gap: 10%;
+    border-radius: 5px;
+    border: none;
+    color: #436d7c;
+  }
+
+  .form_input {
+    font-family: "Spline Sans";
+    font-weight: 400;
+    font-size: 16px;
+    padding: 5px 5px;
+    border: 0.5px solid #b5bdcd;
+    color: #2a2a2a;
+  }
+
+  .add_btn_form {
+    width: 100px;
+    height: 42px;
+    font-size: 16px;
+    font-family: "Spline Sans";
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid #6b7280;
+    color: #6b7280;
+    background-color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .add_btn_form :hover {
+    background-color: #6b7280;
+    color: #FFFFFF;
+  }
+
+  #head-1 h1 {
+    font-family: "Zin Display";
+    font-weight: 400;
+    font-size: 40px;
+  }
+
+  .searchbox {
+    position: relative;
+    height: 42px;
+    width: 309px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+  }
+
+
+
+
+  #search-box {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+  }
+
+  .search-logo {
+    position: absolute;
+    top: 8px;
+    right: 7px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+  }
+
+  .settings {
+    position: relative;
+    top: 5px;
+
+  }
+
+  .status_btn {
+    width: 139px;
+    height: 23px;
+    border-radius: 22px;
+    padding: 2px 6px;
+    border: none;
+    background-color: #436d7c;
+
+    color: white;
+  }
+
+  .btn-main {
+    width: 134px;
+    height: 34px;
+    border-radius: 5px;
+    border-width: 1px;
+    font-weight: 500;
+    color: #626d82;
+    background-color: #ffffff;
+  }
+
+  #doc-title {
+    font-family: "Spline Sans";
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  #doc-title-input {
+    font-family: "Spline Sans";
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+
+
+
+  .table-wrapper {
+    flex: 1;
+    overflow-y: auto;
+
+  }
+
+  table {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%;
+    border-width: 0.5px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+    border: 0.5px solid #b5bdcd;
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 5;
+  }
+
+  th {
+    font-family: "Spline Sans";
+    font-weight: 600;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  table,
+  th,
+  tr,
+  td {
+    padding: 10px 5px;
+    border-bottom: 1px solid #e8ecf1;
+    height: 60px;
+  }
+
+  .td-wrapper {
+    display: flex;
+    gap: 20%;
+  }
+
+  tbody tr:hover {
+    background-color: #f8fafc;
+    transition: 0.2s ease;
+  }
+
+  .td-items {
+    font-family: "Spline Sans";
+    font-weight: 600;
+    font-size: 16px;
+    color: #436d7c;
+    padding: 10px 5px;
+    height: 60px;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  .btn-status {
+    width: 134px;
+    border: 1px solid #b5bdcd;
+    border-radius: 5px;
+    border-width: 1px;
+    color: #626d82;
+    background-color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .td-btn-status {
+    vertical-align: center;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #main-form {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 10px;
+  }
+
+
+
+  #form-div {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 30%;
+    height: 35%;
+    top: 20%;
+    left: 40%;
+    border-radius: 10px;
+    padding: 20px;
+    justify-content: center;
+    position: absolute;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  form h1 {
+    font-family: "Spline Sans";
+    font-weight: 500;
+    font-size: 30px;
+    color: #436d7c;
+  }
+
+  .signNow,
+  .pending,
+  .completed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    padding: 10px 5px;
+  }
+
+  .signNow {
+    background-color: #436d7c;
+    color: #ffffff;
+  }
+
+  .pending {
+    background-color: #e8ecf1;
+    color: #626d82;
+  }
+
+  .completed {
+    color: #1f4451;
+    background-color: #d3f7b5;
+  }
+
+  .for-pending {
+    display: none;
+  }
+
+  .for-pending label {
+    font-size: 16px;
+    font-family: "Inter";
+    font-weight: 500;
+  }
+
+  .for-pending input,
+  .for-pending select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    outline: none;
+  }
+
+  .date-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    color: #626d82;
+  }
+
+  .settings-wrapper {
+    position: relative;
+  }
+
+  .settings-div {
+    display: none;
+    position: absolute;
+    top: 3px;
+    right: 20px;
+    background: white;
+    border-radius: 6px;
+    padding: 3px;
+    gap: 2px;
+    border: 1px solid #ddd;
+    flex-direction: column;
+    z-index: 100;
+  }
+
+  .settings-icon {
+    cursor: pointer;
+  }
+
+  .edit {
+    width: 100px;
+    height: 32px;
+    font-size: 16px;
+    font-family: "Spline Sans";
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    color: #2a2a2a;
+    cursor: pointer;
+  }
+
+  .delete {
+    width: 100px;
+    height: 32px;
+    font-size: 16px;
+    font-family: "Spline Sans";
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    background-color: #ffffff;
+    color: #ed8c8c;
+    cursor: pointer;
+  }
+
+  .waiting {
+    font-family: "Inter";
+    font-weight: 500;
+    font-style: italic;
+    color: #b5bdcd;
+  }
+
+  .waiting-person {
+    font-family: "Inter";
+    font-weight: 500;
+    font-style: italic;
+    color: #436d7c;
+  }
+
+  @media (max-width: 1024px) {
+
+    nav {
+      width: 220px;
+      min-width: 220px;
+    }
+
+    .container {
+      padding: 20px 30px;
+    }
+
+    #form-div {
+      width: 60%;
+    }
+
+  }
+
+  @media (max-width: 768px) {
+
+    nav {
+      width: 200px;
+      min-width: 200px;
+    }
+
+    .container {
+      flex: 1;
+      padding: 15px;
+    }
+
+    #form-div {
+      width: 95%;
+    }
+
+  }

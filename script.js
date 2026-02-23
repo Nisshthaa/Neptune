@@ -9,13 +9,12 @@ let settings_div = document.querySelector("settings-div");
 //logout
 let logout = document.querySelector("#icon-dropdown");
 let logout_div = document.querySelector(".logout-div");
-logout.addEventListener("click", function (e) {
-  if ((logout_div.style.display = "none")) {
-    logout_div.style.display = "block";
-  } else {
-    logout_div.style.display = "none";
-  }
+logout.addEventListener("click", function () {
+  logout_div.style.display =
+    logout_div.style.display === "block" ? "none" : "block";
 });
+
+
 document.addEventListener("click", function (e) {
   // If form is open
   if (logout_div.style.display === "block") {
@@ -87,6 +86,8 @@ form.addEventListener("submit", function (e) {
       title: title,
       status: status,
       waiting: status === "Pending" ? waitingPersons : null,
+      date: new Date().toLocaleString(),
+
     };
     let editIndex = null;
   } else {
@@ -94,6 +95,8 @@ form.addEventListener("submit", function (e) {
       title: title,
       status: status,
       waiting: status === "Pending" ? waitingPersons : null,
+      date: new Date().toLocaleDateString(),
+      time: new Date().toLocaleTimeString()
     });
   }
 
@@ -101,20 +104,17 @@ form.addEventListener("submit", function (e) {
 
   displayData();
   form.reset();
-});
+  person.style.display = "none";
 
-// add button working
-add_btn_id.addEventListener("click", function () {
   form_data.style.display = "none";
   main.style.filter = "none";
 });
+
 
 // display items from local storage
 let displayData = () => {
   let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
   let finalData = "";
-  let date = new Date().toLocaleDateString();
-  let time = new Date().toLocaleTimeString();
   let button = "";
   let btn_class = "";
 
@@ -141,13 +141,16 @@ let displayData = () => {
         ${waitingText}
           
           </td>
-          <td class="td-items date-text">${date}<br>${time}</td>
-          <td><button class="btn-status">${button}</button></td>
+          <td class="td-items date-text">${element.date}<br>${element.time}</td>
+       
 
           <td class="settings-wrapper">
+            <div class="td-wrapper">
+            <button class="btn-status">${button}</button>
             <img src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
               alt="settings"
               class="settings-icon">
+            </div>
             <div class="settings-div">
               <button class="edit" data-index="${i}">Edit</button>
               <button class="delete" data-index="${i}">Delete</button>
@@ -214,6 +217,7 @@ document.addEventListener("click", function (e) {
 
     localStorage.setItem("userDetails", JSON.stringify(userData));
     displayData();
+    form.reset();
   }
 });
 
@@ -225,19 +229,20 @@ searchBox.addEventListener("keyup", function () {
   const searchValue = searchBox.value.toLowerCase();
   let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
 
-  let filtered_data = userData.filter((item) => {
-    return (
-      item.title.toLowerCase().includes(searchValue) ||
-      item.status.toLowerCase().includes(searchValue)
-    );
-  });
+  let filtered_data = userData
+    .map((item, index) => ({ ...item, originalIndex: index }))
+    .filter((item) => {
+      return (
+        item.title.toLowerCase().includes(searchValue) ||
+        item.status.toLowerCase().includes(searchValue)
+      );
+    });
   displayFilteredData(filtered_data);
 });
 
 function displayFilteredData(data) {
   let finalData = "";
-  let date = new Date().toLocaleDateString();
-  let time = new Date().toLocaleTimeString();
+  let waitingText = "";
   let button = "";
   let btn_class = "";
 
@@ -248,6 +253,8 @@ function displayFilteredData(data) {
     } else if (element.status === "Pending") {
       button = "Preview";
       btn_class = "pending";
+      waitingText = `<p class="waiting">Waiting for <span class="waiting-person">${element.waiting} persons</span></p>`;
+
     } else {
       button = "Download PDF";
       btn_class = "completed";
@@ -258,17 +265,19 @@ function displayFilteredData(data) {
           <tr class="tr-style">
           <td ><input type="checkbox"></td>
           <td class="td-items">${element.title}</td>
-          <td class="td-items ${btn_class}">${element.status}</td>
-          <td class="td-items date-text">${date}<br>${time}</td>
-          <td class="btn-status">${button}</td>
+          <td class="td-items "><span class=${btn_class}>${element.status}</span>
+        ${waitingText}
+          </td>
+          <td class="td-items date-text">${element.date}<br>${element.time}</td>
           
-          <td class="settings-wrapper">
+        <td class="settings-wrapper">
+        <button class="btn-status">${button}</button>
             <img src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
               alt="settings"
               class="settings-icon">
             <div class="settings-div">
-              <button class="edit" data-index="${i}">Edit</button>
-              <button class="delete" data-index="${i}">Delete</button>
+              <button class="edit" data-index="${element.originalIndex}">Edit</button>
+<button class="delete" data-index="${element.originalIndex}">Delete</button>
             </div>
           </td>
           </tr>

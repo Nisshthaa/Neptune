@@ -1,229 +1,188 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neptune</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
 
-  <body>
-    <!--Main container-->
-    <div class="main">
-      <!--Navbar-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neptune</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
 
-      <nav>
-        <div class="profile">
-          <!--Neptune logo-->
-          <div class="logo-name">
-            <img class="union-img" src="./assets/Union.svg" alt="logo-image" />
-          </div>
-          <!--User name-->
-          <div class="user-profile">
-            <div class="user">
-              <div class="logo-img-user">
-                <img
-                  class="logo-img"
-                  src="./assets/Group 79.svg"
-                  alt="logo-img"
-                />
-              </div>
-              <div class="user-id">
-                <p id="u-name">Jessica Thompson</p>
-                <p id="u-user">Primary User</p>
-              </div>
+<body>
+  <!--Main container-->
+  <div class="main">
+    <!--Navbar-->
+
+    <nav>
+      <div class="profile">
+        <!--Neptune logo-->
+        <div class="logo-name">
+          <img class="union-img" src="./assets/Union.svg" alt="logo-image" />
+        </div>
+        <!--User name-->
+        <div class="user-profile">
+          <div class="user">
+            <div class="logo-img-user">
+              <img class="logo-img" src="./assets/Group 79.svg" alt="logo-img" />
             </div>
-            <div class="dropdown">
-              <img
-              id="icon-dropdown"
-              src="./assets/Icon Right.svg"
-              alt="dropdown-icon"
-            />
+            <div class="user-id">
+              <p id="u-name">Jessica Thompson</p>
+              <p id="u-user">Primary User</p>
+            </div>
+          </div>
+          <div class="dropdown">
+            <img id="icon-dropdown" src="./assets/Icon Right.svg" alt="dropdown-icon" />
             <div class="logout-div">
               <button class="btn-logout">Logout</button>
             </div>
-            </div>
-            
-          </div>
-          <!-- Navigation -->
-          <div class="nav-tabs">
-            <!--nav-first element-->
-
-            <a href="#" class="items">
-              <img class="items-img" src="./assets/home 1.svg" alt="home-tab" />
-              <p class="tab-name">Home</p>
-            </a>
-
-            <a href="" class="items">
-              <img
-                class="items-img"
-                src="./assets/file-text 1.svg"
-                alt="document-tab"
-              />
-              <p class="tab-name">Documents</p>
-            </a>
-
-            <a href="" class="items">
-              <img
-                class="items-img"
-                src="./assets/message-circle 1.svg"
-                alt="chat-tab"
-              />
-              <p class="tab-name">Chat with Neptune</p>
-            </a>
-
-            <a href="" class="items">
-              <img
-                class="items-img"
-                src="./assets/help-circle 1.svg"
-                alt="help-tab"
-              />
-              <p class="tab-name">Help</p>
-            </a>
-
-            <a href="" class="items">
-              <img
-                class="items-img"
-                src="./assets/settings 1.svg"
-                alt="settings-tab"
-              />
-              <p class="tab-name">Settings</p>
-            </a>
           </div>
         </div>
-        <!--nav-second element-->
-        <footer>
-          <div id="phone">
-            <img src="./assets/phone 1.svg" alt="phone-img" />
-          </div>
-          <div class="footer-content">
-            <h1>Having trouble?</h1>
-            <p>
-              Feel free to contact us and we will always help you through the
-              process.
-            </p>
-          </div>
+        <!-- Navigation -->
+        <div class="nav-tabs">
+          <!--nav-first element-->
 
-          <button id="btn-contact">
-            <p>Contact us</p>
-          </button>
-        </footer>
-      </nav>
+          <a href="#" class="items">
+            <img class="items-img" src="./assets/home 1.svg" alt="home-tab" />
+            <p class="tab-name">Home</p>
+          </a>
 
-      <!--hero section-->
+          <a href="" class="items items-img-doc">
+            <img class="items-img " src="./assets/file-text 1.svg" alt="document-tab" />
+            <p class="tab-name">Documents</p>
+          </a>
 
-      <div class="container">
-        <!--tabs-->
-        <div class="tab-1">
-          <p class="item-home">Home</p>
-          <img
-            id="right-dropdown"
-            src="./assets/chevron-right.svg"
-            alt="right-dropdown"
-          />
-          <p id="item-document">Documents</p>
+          <a href="" class="items">
+            <img class="items-img" src="./assets/message-circle 1.svg" alt="chat-tab" />
+            <p class="tab-name">Chat with Neptune</p>
+          </a>
+
+          <a href="" class="items">
+            <img class="items-img" src="./assets/help-circle 1.svg" alt="help-tab" />
+            <p class="tab-name">Help</p>
+          </a>
+
+          <a href="" class="items">
+            <img class="items-img" src="./assets/settings 1.svg" alt="settings-tab" />
+            <p class="tab-name">Settings</p>
+          </a>
+        </div>
+      </div>
+      <!--nav-second element-->
+      <footer>
+        <div id="phone">
+          <img src="./assets/phone 1.svg" alt="phone-img" />
+        </div>
+        <div class="footer-content">
+          <h1>Having trouble?</h1>
+          <p>
+            Feel free to contact us and we will always help you through the
+            process.
+          </p>
         </div>
 
-        <!--title+searchbar-->
+        <button id="btn-contact">
+          <p>Contact us</p>
+        </button>
+      </footer>
+    </nav>
 
-        <div class="tab-2">
-          <div id="head-1">
-            <h1>My Documents</h1>
+    <!--hero section-->
+
+    <div class="container">
+      <!--tabs-->
+      <div class="tab-1">
+        <p class="item-home">Home</p>
+        <img id="right-dropdown" src="./assets/chevron-right.svg" alt="right-dropdown" />
+        <p id="item-document">Documents</p>
+      </div>
+
+      <!--title+searchbar-->
+
+      <div class="tab-2">
+        <div id="head-1">
+          <h1>My Documents</h1>
+        </div>
+        <div class="head-2">
+          <div class="crud-btn">
+            <button id="add-btn">Add</button>
           </div>
-          <div class="head-2">
-            <div class="crud-btn">
-              <button id="add-btn">Add</button>
-            </div>
 
-            <div class="searchbox">
-              <input
-                id="search-box"
-                type="text"
-                placeholder="Search documents"
-              />
-              <img
-                class="search-logo"
-                src="./assets/Layer_1.svg"
-                alt="search-logo"
-              />
-            </div>
+          <div class="searchbox">
+            <input id="search-box" type="text" placeholder="Search documents" />
+            <img class="search-logo" src="./assets/Layer_1.svg" alt="search-logo" />
           </div>
         </div>
+      </div>
 
+      <div class="table-wrapper">
         <!-- Table -->
         <table>
           <thead>
             <th>
               <input type="checkbox" />
-              <img
-                id="icon-small"
-                src="./assets/Icon Right.svg"
-                alt="icon-small"
-              />
+              <img id="icon-small" src="./assets/Icon Right.svg" alt="icon-small" />
             </th>
-            <th >Document Name</th>
-            <th >Status</th>
-            <th >Last Modified</th>
+            <th>Document Name</th>
+            <th>Status</th>
+            <th>Last Modified</th>
             <th></th>
             <th></th>
           </thead>
 
           <tbody></tbody>
-
         </table>
       </div>
     </div>
-    <div id="main-form" class="hidden">
-      <!--form-->
-      <form action="">
-        <div id="form-div">
-          <h1>Add Document</h1>
+  </div>
+  <div id="main-form" class="hidden">
+    <!--form-->
+    <form action="">
+      <div id="form-div">
+
+        <div class="title_div">
+          <label class="input-style" for="title_doc">Document title</label>
           <br />
-
-          <div class="title_div">
-            <label class="input-style" for="title_doc">Document title</label>
-            <br />
-            <input
-              class="input-style form_input"
-              id="title_doc"
-              placeholder="Enter document title"
-              name="title"
-              type="text"
-            />
-          </div>
-
-          <br />
-          <div>
-            <label class="input-style" for="status_label">Status</label>
-            <br />
-            <select class="input-style form_input" id="status_id" name="status">
-              <option class="input-style form_input">Select Status</option>
-
-              <option class="input-style form_input">Needs Signing</option>
-              <option class="input-style form_input pending-person" value="Pending">Pending</option>
-
-              <option class="input-style form_input">Completed</option>
-            </select>
-          </div>
-          <br>
-            <div class="for-pending">
-            <label>Person Waiting</label>
-            <input type="number" id="waiting_num" placeholder="1" min="1" />
-          </div>
-
-          <br />
-          <div>
-            <button type="button" class="delete-btn" id="delete_btn">
-              Cancel
-            </button>
-            <button type="submit" class="add_btn_form" id="add_btn_id">
-              Add
-            </button>
-          </div>
+          <input class="input-style form_input" id="title_doc" placeholder="Enter document title" name="title"
+            type="text" required />
         </div>
-      </form>
-    </div>
- 
-    <script src="script.js"></script>
-  </body>
+
+        <br />
+        <div>
+          <label class="input-style" for="status_label">Status</label>
+          <br />
+          <select class="form_input" id="status_id" name="status" required>
+            <option class="form_input" value="">Select status</option>
+
+            <option class="form_input" value="Needs Signing">
+              Needs Signing
+            </option>
+            <option class="form_input pending-person" value="Pending">
+              Pending
+            </option>
+
+            <option class="form_input" value="Completed">Completed</option>
+          </select>
+        </div>
+        <br />
+        <div class="for-pending">
+          <label>Person Waiting</label>
+          <input type="number" id="waiting_num" placeholder="1" min="1" />
+        </div>
+
+        <br />
+        <div>
+          <button type="button" class="delete-btn" id="delete_btn">
+            Cancel
+          </button>
+          <button type="submit" class="add_btn_form" id="add_btn_id">
+            Add
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
