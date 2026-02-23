@@ -71,7 +71,7 @@
   }
 
   .btn-logout:hover {
-    background-color: #6b7280;
+    background-color: #366e83;
     color: #FFFFFF;
   }
 
@@ -294,7 +294,7 @@
   }
 
   #add-btn:hover {
-    background-color: #5d687e;
+    background-color: #366e83;
     color: #FFFFFF;
   }
 
@@ -330,7 +330,7 @@
 
 
   .delete-btn:hover {
-    background-color: #6b7280;
+    background-color:rgb(234, 91, 91);
     color: #FFFFFF;
   }
 
@@ -378,7 +378,7 @@
   }
 
   .add_btn_form :hover {
-    background-color: #6b7280;
+    background-color: #366e83;
     color: #FFFFFF;
   }
 
@@ -677,11 +677,19 @@
     cursor: pointer;
   }
 
+  .edit:hover{
+     
+    background-color:#5ead1d;
+    color: #FFFFFF;
+  
+  }
+ 
   .edit-icon {
     width: 20px;
     height: 23px;
     border-radius: 6px;
   }
+
 
   .delete {
     display: flex;
@@ -698,7 +706,10 @@
     color: #ed8c8c;
     cursor: pointer;
   }
-
+ .delete:hover{
+    background-color:rgb(234, 91, 91);
+    color: #FFFFFF;
+  }
 
   .delete-icon {
 

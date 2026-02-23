@@ -42,6 +42,7 @@ document.addEventListener("click", function (e) {
   if (form_data.style.display === "block") {
     // Check if click is outside the form AND not the add button
     if (!form_data.contains(e.target) && !add_btn.contains(e.target)) {
+      form.reset()
       form_data.style.display = "none";
       main.style.filter = "none";
 
@@ -51,9 +52,10 @@ document.addEventListener("click", function (e) {
 
 // delete-items
 delete_btn.addEventListener("click", function () {
+  form.reset()
   form_data.style.display = "none";
   main.style.filter = "none";
-  form.reset()
+  
 });
 
 //pending persons
@@ -190,7 +192,7 @@ document.addEventListener("click", function (e) {
   else {
     document.querySelectorAll(".settings-div").forEach((menu) => {
       menu.style.display = "none";
-      form.reset()
+      
     });
   }
 });
