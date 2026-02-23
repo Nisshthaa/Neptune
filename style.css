@@ -17,8 +17,9 @@
 
   .main {
     display: flex;
-    min-height: 100vh;
+    max-height: 100vh;
     width: 100%;
+    
   }
 
   nav {
@@ -471,7 +472,6 @@
 
   table {
     flex: 1;
-    overflow-x: auto;
     overflow-y: auto;
     width: 100%;
     border-width: 0.5px;
@@ -480,13 +480,6 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     background-color: #ffffff;
     border: 0.5px solid #b5bdcd;
-  }
-
-  thead {
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 5;
   }
 
   th {

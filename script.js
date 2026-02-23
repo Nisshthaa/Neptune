@@ -14,7 +14,6 @@ logout.addEventListener("click", function () {
     logout_div.style.display === "block" ? "none" : "block";
 });
 
-
 document.addEventListener("click", function (e) {
   // If form is open
   if (logout_div.style.display === "block") {
@@ -42,20 +41,18 @@ document.addEventListener("click", function (e) {
   if (form_data.style.display === "block") {
     // Check if click is outside the form AND not the add button
     if (!form_data.contains(e.target) && !add_btn.contains(e.target)) {
-      form.reset()
+      form.reset();
       form_data.style.display = "none";
       main.style.filter = "none";
-
     }
   }
 });
 
 // delete-items
 delete_btn.addEventListener("click", function () {
-  form.reset()
+  form.reset();
   form_data.style.display = "none";
   main.style.filter = "none";
-  
 });
 
 //pending persons
@@ -91,16 +88,14 @@ form.addEventListener("submit", function (e) {
       status: status,
       waiting: status === "Pending" ? waitingPersons : null,
       date: new Date().toLocaleString(),
-
     };
-    let editIndex = null;
   } else {
     userData.push({
       title: title,
       status: status,
       waiting: status === "Pending" ? waitingPersons : null,
       date: new Date().toLocaleDateString(),
-      time: new Date().toLocaleTimeString()
+      time: new Date().toLocaleTimeString(),
     });
   }
 
@@ -113,7 +108,6 @@ form.addEventListener("submit", function (e) {
   form_data.style.display = "none";
   main.style.filter = "none";
 });
-
 
 // display items from local storage
 let displayData = () => {
@@ -160,7 +154,7 @@ let displayData = () => {
                <img src="./assets/edit-icon-symbol-design-illustration-vector.jpg" class="edit-icon" alt="">
 
               </button>
-             <button class="delete" data-index="${element.originalIndex}">Delete
+             <button class="delete" data-index="${i}">Delete
  <img src="./assets/delete-icon-vector.jpg" class="delete-icon"></img>
 </button>
             </div>
@@ -192,7 +186,6 @@ document.addEventListener("click", function (e) {
   else {
     document.querySelectorAll(".settings-div").forEach((menu) => {
       menu.style.display = "none";
-      
     });
   }
 });
@@ -264,7 +257,6 @@ function displayFilteredData(data) {
       button = "Preview";
       btn_class = "pending";
       waitingText = `<p class="waiting">Waiting for <span class="waiting-person">${element.waiting} persons</span></p>`;
-
     } else {
       button = "Download PDF";
       btn_class = "completed";
@@ -300,4 +292,3 @@ function displayFilteredData(data) {
   });
   tbody.innerHTML = finalData;
 }
-
