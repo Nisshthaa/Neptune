@@ -44,6 +44,7 @@ document.addEventListener("click", function (e) {
     if (!form_data.contains(e.target) && !add_btn.contains(e.target)) {
       form_data.style.display = "none";
       main.style.filter = "none";
+
     }
   }
 });
@@ -52,6 +53,7 @@ document.addEventListener("click", function (e) {
 delete_btn.addEventListener("click", function () {
   form_data.style.display = "none";
   main.style.filter = "none";
+  form.reset()
 });
 
 //pending persons
@@ -152,8 +154,13 @@ let displayData = () => {
               class="settings-icon">
             </div>
             <div class="settings-div">
-              <button class="edit" data-index="${i}">Edit</button>
-              <button class="delete" data-index="${i}">Delete</button>
+              <button class="edit" data-index="${i}">Edit
+               <img src="./assets/edit-icon-symbol-design-illustration-vector.jpg" class="edit-icon" alt="">
+
+              </button>
+             <button class="delete" data-index="${element.originalIndex}">Delete
+ <img src="./assets/delete-icon-vector.jpg" class="delete-icon"></img>
+</button>
             </div>
           </td>
           </tr>
@@ -183,6 +190,7 @@ document.addEventListener("click", function (e) {
   else {
     document.querySelectorAll(".settings-div").forEach((menu) => {
       menu.style.display = "none";
+      form.reset()
     });
   }
 });
@@ -276,8 +284,13 @@ function displayFilteredData(data) {
               alt="settings"
               class="settings-icon">
             <div class="settings-div">
-              <button class="edit" data-index="${element.originalIndex}">Edit</button>
-<button class="delete" data-index="${element.originalIndex}">Delete</button>
+              <button class="edit" data-index="${element.originalIndex}">Edit
+               <img src="./assets/edit-icon-symbol-design-illustration-vector.jpg" class="edit-icon" alt="">
+
+              </button>
+<button class="delete" data-index="${element.originalIndex}">Delete
+ <img src="./assets/delete-icon-vector.jpg" class="delete-icon"></img>
+</button>
             </div>
           </td>
           </tr>
@@ -285,3 +298,4 @@ function displayFilteredData(data) {
   });
   tbody.innerHTML = finalData;
 }
+

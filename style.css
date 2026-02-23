@@ -270,7 +270,16 @@
     gap: 3%;
   }
 
+  .btn-forms {
+    display: flex;
+    gap: 5px;
+  }
+
   #add-btn {
+    display: flex;
+    gap: 2px;
+    justify-content: space-evenly;
+    align-items: center;
     width: 100px;
     height: 42px;
     font-size: 16px;
@@ -281,14 +290,25 @@
     color: #6b7280;
     background-color: #FFFFFF;
     cursor: pointer;
+
   }
 
   #add-btn:hover {
-    background-color: #6b7280;
+    background-color: #5d687e;
     color: #FFFFFF;
   }
 
+  .plus-icon {
+    width: 13px;
+    height: 13px;
+    border-radius: 6px;
+  }
+
   .delete-btn {
+    display: flex;
+    gap: 2px;
+    justify-content: space-evenly;
+    align-items: center;
     width: 100px;
     height: 42px;
     font-size: 16px;
@@ -301,6 +321,12 @@
     cursor: pointer;
   }
 
+
+  .cancel-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+  }
 
 
   .delete-btn:hover {
@@ -335,6 +361,10 @@
   }
 
   .add_btn_form {
+    display: flex;
+    gap: 2px;
+    justify-content: space-evenly;
+    align-items: center;
     width: 100px;
     height: 42px;
     font-size: 16px;
@@ -631,6 +661,9 @@
   }
 
   .edit {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100px;
     height: 32px;
     font-size: 16px;
@@ -644,7 +677,16 @@
     cursor: pointer;
   }
 
+  .edit-icon {
+    width: 20px;
+    height: 23px;
+    border-radius: 6px;
+  }
+
   .delete {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100px;
     height: 32px;
     font-size: 16px;
@@ -656,6 +698,16 @@
     color: #ed8c8c;
     cursor: pointer;
   }
+
+
+  .delete-icon {
+
+    width: 20px;
+    height: 23px;
+    border-radius: 6px;
+  }
+
+
 
   .waiting {
     font-family: "Inter";
