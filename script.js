@@ -219,6 +219,7 @@ document.addEventListener("click", function (e) {
     userData.splice(index, 1);
 
     localStorage.setItem("userDetails", JSON.stringify(userData));
+    searchBox.value = ""; 
     displayData();
     form.reset();
   }
@@ -248,7 +249,7 @@ function displayFilteredData(data) {
   let waitingText = "";
   let button = "";
   let btn_class = "";
-
+  
   data.forEach((element, i) => {
     if (element.status === "Needs Signing") {
       button = "Sign Now";
@@ -291,4 +292,5 @@ function displayFilteredData(data) {
           `;
   });
   tbody.innerHTML = finalData;
+
 }
