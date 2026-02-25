@@ -38,7 +38,7 @@ document.addEventListener("click", function (e) {
 // add-items
 add_btn.addEventListener("click", function (e) {
   main.style.filter = "blur(10px)";
-  form_data.style.display = "block";
+  form_data.style.display = "flex";
   //datetime
 date_doc.value=new Date().toLocaleString()
 });

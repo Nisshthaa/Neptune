@@ -552,10 +552,10 @@
   }
 
   #main-form {
-  
+  display: none;
   position: fixed;
   inset: 0;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
