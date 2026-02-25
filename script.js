@@ -1,14 +1,22 @@
-let add_btn = document.getElementById("add-btn");
-let delete_btn = document.getElementById("delete_btn");
-let form_data = document.getElementById("main-form");
-let main = document.querySelector(".main");
-let tbody = document.querySelector("tbody");
-let settings = document.querySelector("settings");
-let settings_div = document.querySelector("settings-div");
+const add_btn = document.getElementById("add-btn");
+const delete_btn = document.getElementById("delete_btn");
+const form_data = document.getElementById("main-form");
+const main = document.querySelector(".main");
+const tbody = document.querySelector("tbody");
+const settings = document.querySelector("settings");
+const settings_div = document.querySelector("settings-div");
+const logout = document.querySelector("#icon-dropdown");
+const logout_div = document.querySelector(".logout-div");
+const form = document.querySelector("form");
+const waitingInput = document.getElementById("waiting_num");
+const person = document.querySelector(".for-pending");
+const statusSelect = document.getElementById("status_id");
+let edit_index = null;
+const title_doc = document.getElementById("title_doc");
+const status_id = document.getElementById("status_id");
 
 //logout
-let logout = document.querySelector("#icon-dropdown");
-let logout_div = document.querySelector(".logout-div");
+
 logout.addEventListener("click", function () {
   logout_div.style.display =
     logout_div.style.display === "block" ? "none" : "block";
@@ -24,11 +32,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// delete-items
-delete_btn.addEventListener("click", function () {
-  form_data.style.display = "none";
-  main.style.filter = "none";
-});
+
 
 // add-items
 add_btn.addEventListener("click", function (e) {
@@ -48,16 +52,18 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// delete-items
+// cancel-form
 delete_btn.addEventListener("click", function () {
   form.reset();
   form_data.style.display = "none";
   main.style.filter = "none";
+  person.style.display = "none";
+  waitingInput.value = "";
+  edit_index = null;
 });
 
 //pending persons
-let person = document.querySelector(".for-pending");
-let statusSelect = document.getElementById("status_id");
+
 
 // hide initially
 person.style.display = "none";
@@ -70,9 +76,9 @@ statusSelect.addEventListener("change", function () {
   }
 });
 
+
 // form working
-let form = document.querySelector("form");
-let waitingInput = document.getElementById("waiting_num");
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -80,14 +86,15 @@ form.addEventListener("submit", function (e) {
   let status = e.target.status.value;
   let waitingPersons = waitingInput.value;
 
-  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+  let userData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
 
   if (edit_index != null) {
     userData[edit_index] = {
       title: title,
       status: status,
       waiting: status === "Pending" ? waitingPersons : null,
-      date: new Date().toLocaleString(),
+      date: new Date().toLocaleDateString(),
+      time: new Date().toLocaleTimeString()
     };
   } else {
     userData.push({
@@ -99,19 +106,19 @@ form.addEventListener("submit", function (e) {
     });
   }
 
-  localStorage.setItem("userDetails", JSON.stringify(userData));
+  localStorage.setItem("DocumentData", JSON.stringify(userData));
 
   displayData();
   form.reset();
   person.style.display = "none";
-
+  edit_index = null
   form_data.style.display = "none";
   main.style.filter = "none";
 });
 
 // display items from local storage
-let displayData = () => {
-  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+let displayData = (data = null) => {
+  let userData = data ?? JSON.parse(localStorage.getItem("DocumentData")) ?? [];
   let finalData = "";
   let button = "";
   let btn_class = "";
@@ -150,11 +157,11 @@ let displayData = () => {
               class="settings-icon">
             </div>
             <div class="settings-div">
-              <button class="edit" data-index="${i}">Edit
+              <button class="edit" data-index="${element.originalIndex ?? i}">Edit
                <img src="./assets/edit-icon-symbol-design-illustration-vector.jpg" class="edit-icon" alt="">
 
               </button>
-             <button class="delete" data-index="${i}">Delete
+             <button class="delete" data-index="${element.originalIndex ?? i}">Delete
  <img src="./assets/delete-icon-vector.jpg" class="delete-icon"></img>
 </button>
             </div>
@@ -190,19 +197,24 @@ document.addEventListener("click", function (e) {
   }
 });
 
+
 //edit items
-let edit_index = null;
-let title_doc = document.getElementById("title_doc");
-let status_id = document.getElementById("status_id");
 
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("edit")) {
     let index = e.target.getAttribute("data-index");
-    let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+    let userData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
 
     let item = userData[index];
     title_doc.value = item.title;
     status_id.value = item.status;
+    if (item.status === "Pending") {
+      person.style.display = "block";
+      waitingInput.value = item.waiting ?? "";
+    } else {
+      person.style.display = "none";
+      waitingInput.value = "";
+    }
     edit_index = index;
     main.style.filter = "blur(10px)";
     form_data.style.display = "block";
@@ -214,12 +226,12 @@ document.addEventListener("click", function (e) {
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("delete")) {
     let index = e.target.getAttribute("data-index");
-    let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+    let userData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
     // Remove that item
     userData.splice(index, 1);
 
-    localStorage.setItem("userDetails", JSON.stringify(userData));
-    searchBox.value = ""; 
+    localStorage.setItem("DocumentData", JSON.stringify(userData));
+    searchBox.value = "";
     displayData();
     form.reset();
   }
@@ -231,7 +243,7 @@ let searchBox = document.querySelector("#search-box");
 
 searchBox.addEventListener("keyup", function () {
   const searchValue = searchBox.value.toLowerCase();
-  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+  let userData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
 
   let filtered_data = userData
     .map((item, index) => ({ ...item, originalIndex: index }))
@@ -241,56 +253,6 @@ searchBox.addEventListener("keyup", function () {
         item.status.toLowerCase().includes(searchValue)
       );
     });
-  displayFilteredData(filtered_data);
+  displayData(filtered_data);
 });
 
-function displayFilteredData(data) {
-  let finalData = "";
-  let waitingText = "";
-  let button = "";
-  let btn_class = "";
-  
-  data.forEach((element, i) => {
-    if (element.status === "Needs Signing") {
-      button = "Sign Now";
-      btn_class = "signNow";
-    } else if (element.status === "Pending") {
-      button = "Preview";
-      btn_class = "pending";
-      waitingText = `<p class="waiting">Waiting for <span class="waiting-person">${element.waiting} persons</span></p>`;
-    } else {
-      button = "Download PDF";
-      btn_class = "completed";
-      btn_status = "completed";
-    }
-
-    finalData += `
-          <tr class="tr-style">
-          <td ><input type="checkbox"></td>
-          <td class="td-items">${element.title}</td>
-          <td class="td-items "><span class=${btn_class}>${element.status}</span>
-        ${waitingText}
-          </td>
-          <td class="td-items date-text">${element.date}<br>${element.time}</td>
-          
-        <td class="settings-wrapper">
-        <button class="btn-status">${button}</button>
-            <img src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
-              alt="settings"
-              class="settings-icon">
-            <div class="settings-div">
-              <button class="edit" data-index="${element.originalIndex}">Edit
-               <img src="./assets/edit-icon-symbol-design-illustration-vector.jpg" class="edit-icon" alt="">
-
-              </button>
-<button class="delete" data-index="${element.originalIndex}">Delete
- <img src="./assets/delete-icon-vector.jpg" class="delete-icon"></img>
-</button>
-            </div>
-          </td>
-          </tr>
-          `;
-  });
-  tbody.innerHTML = finalData;
-
-}
