@@ -304,6 +304,7 @@
     width: 13px;
     height: 13px;
     border-radius: 6px;
+    
   }
 
   .delete-btn {
@@ -318,7 +319,7 @@
     font-weight: 500;
     border-radius: 6px;
     border: 1px solid #6b7280;
-    color: #6b7280;
+    color: rgb(244, 124, 124);
     background-color: #FFFFFF;
     cursor: pointer;
   }
@@ -328,6 +329,10 @@
     width: 25px;
     height: 25px;
     border-radius: 6px;
+    background-color:  rgb(244, 124, 124);
+    margin: 0;
+    padding: 0;
+    line-height: 1;
   }
 
 
@@ -380,7 +385,7 @@
     cursor: pointer;
   }
 
-  .add_btn_form :hover {
+  .add_btn_form:hover {
     background-color: #366e83;
     color: #FFFFFF;
   }
@@ -678,7 +683,7 @@
 
   .edit:hover{
      
-    background-color:#5ead1d;
+    background-color:#9cca76;
     color: #FFFFFF;
   
   }

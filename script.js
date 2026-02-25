@@ -44,13 +44,18 @@ date_doc.value=new Date().toLocaleString()
 });
 
 document.addEventListener("click", function (e) {
-  // If form is open
   if (form_data.style.display === "block") {
-    // Check if click is outside the form AND not the add button
-    if (!form_data.contains(e.target) && !add_btn.contains(e.target)) {
+    const formBox = document.getElementById("form-div");
+
+    if (
+      !formBox.contains(e.target) &&
+      !add_btn.contains(e.target)
+    ) {
       form.reset();
       form_data.style.display = "none";
       main.style.filter = "none";
+      person.style.display = "none";
+      edit_index = null;
     }
   }
 });
@@ -163,11 +168,11 @@ let displayData = (data = null) => {
             </div>
             <div class="settings-div">
               <button class="edit" data-index="${element.originalIndex ?? i}">Edit
-               <img src="./assets/edit-icon-symbol-design-illustration-vector.jpg" class="edit-icon" alt="">
+               <img src="./assets/edit.svg" class="edit-icon" alt="">
 
               </button>
              <button class="delete" data-index="${element.originalIndex ?? i}">Delete
- <img src="./assets/delete-icon-vector.jpg" class="delete-icon"></img>
+ <img src="./assets/delete.svg" class="delete-icon"></img>
 </button>
             </div>
           </td>
