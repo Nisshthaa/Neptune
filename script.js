@@ -14,6 +14,7 @@ const statusSelect = document.getElementById("status_id");
 let edit_index = null;
 const title_doc = document.getElementById("title_doc");
 const status_id = document.getElementById("status_id");
+const date_doc=document.querySelector("#date_doc")
 
 //logout
 
@@ -38,6 +39,8 @@ document.addEventListener("click", function (e) {
 add_btn.addEventListener("click", function (e) {
   main.style.filter = "blur(10px)";
   form_data.style.display = "block";
+  //datetime
+date_doc.value=new Date().toLocaleString()
 });
 
 document.addEventListener("click", function (e) {
@@ -51,6 +54,8 @@ document.addEventListener("click", function (e) {
     }
   }
 });
+
+
 
 // cancel-form
 delete_btn.addEventListener("click", function () {
