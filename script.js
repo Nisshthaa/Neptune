@@ -44,7 +44,7 @@ date_doc.value=new Date().toLocaleString()
 });
 
 document.addEventListener("click", function (e) {
-  if (form_data.style.display === "block") {
+  if (form_data.style.display === "flex") {
     const formBox = document.getElementById("form-div");
 
     if (
@@ -73,8 +73,6 @@ delete_btn.addEventListener("click", function () {
 });
 
 //pending persons
-
-
 // hide initially
 person.style.display = "none";
 
