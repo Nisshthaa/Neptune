@@ -16,13 +16,14 @@ const title_doc = document.getElementById("title_doc");
 const status_id = document.getElementById("status_id");
 const date_doc=document.querySelector("#date_doc")
 
-//logout
+//logout dropdown logic
 
 logout.addEventListener("click", function () {
   logout_div.style.display =
     logout_div.style.display === "block" ? "none" : "block";
 });
 
+//close when clicking outside
 document.addEventListener("click", function (e) {
   // If form is open
   if (logout_div.style.display === "block") {
@@ -34,8 +35,7 @@ document.addEventListener("click", function (e) {
 });
 
 
-
-// add-items
+//Open form using add button
 add_btn.addEventListener("click", function (e) {
   main.style.filter = "blur(10px)";
   form_data.style.display = "flex";
@@ -43,6 +43,7 @@ add_btn.addEventListener("click", function (e) {
 date_doc.value=new Date().toLocaleString()
 });
 
+//close the button when clicked anywhere else
 document.addEventListener("click", function (e) {
   if (form_data.style.display === "flex") {
     const formBox = document.getElementById("form-div");
@@ -62,7 +63,7 @@ document.addEventListener("click", function (e) {
 
 
 
-// cancel-form
+// cancel-button
 delete_btn.addEventListener("click", function () {
   form.reset();
   form_data.style.display = "none";
@@ -75,7 +76,6 @@ delete_btn.addEventListener("click", function () {
 //pending persons
 // hide initially
 person.style.display = "none";
-
 statusSelect.addEventListener("change", function () {
   if (statusSelect.value === "Pending") {
     person.style.display = "block";
@@ -85,7 +85,8 @@ statusSelect.addEventListener("change", function () {
 });
 
 
-// form working
+
+// form submission
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -94,10 +95,10 @@ form.addEventListener("submit", function (e) {
   let status = e.target.status.value;
   let waitingPersons = waitingInput.value;
 
-  let userData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
+  let DocumentData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
 
   if (edit_index != null) {
-    userData[edit_index] = {
+    DocumentData[edit_index] = {
       title: title,
       status: status,
       waiting: status === "Pending" ? waitingPersons : null,
@@ -105,7 +106,7 @@ form.addEventListener("submit", function (e) {
       time: new Date().toLocaleTimeString()
     };
   } else {
-    userData.push({
+    DocumentData.push({
       title: title,
       status: status,
       waiting: status === "Pending" ? waitingPersons : null,
@@ -114,7 +115,7 @@ form.addEventListener("submit", function (e) {
     });
   }
 
-  localStorage.setItem("DocumentData", JSON.stringify(userData));
+  localStorage.setItem("DocumentData", JSON.stringify(DocumentData));
 
   displayData();
   form.reset();
@@ -126,12 +127,12 @@ form.addEventListener("submit", function (e) {
 
 // display items from local storage
 let displayData = (data = null) => {
-  let userData = data ?? JSON.parse(localStorage.getItem("DocumentData")) ?? [];
+  let DocumentData = data ?? JSON.parse(localStorage.getItem("DocumentData")) ?? [];
   let finalData = "";
   let button = "";
   let btn_class = "";
 
-  userData.forEach((element, i) => {
+  DocumentData.forEach((element, i) => {
     let waitingText = "";
     if (element.status === "Needs Signing") {
       button = "Sign Now";
@@ -209,11 +210,14 @@ document.addEventListener("click", function (e) {
 //edit items
 
 document.addEventListener("click", function (e) {
+  date_doc.value=new Date().toLocaleString()
   if (e.target.classList.contains("edit")) {
     let index = e.target.getAttribute("data-index");
-    let userData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
+    let DocumentData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
+      //datetime
+    
 
-    let item = userData[index];
+    let item = DocumentData[index];
     title_doc.value = item.title;
     status_id.value = item.status;
     if (item.status === "Pending") {
@@ -234,11 +238,11 @@ document.addEventListener("click", function (e) {
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("delete")) {
     let index = e.target.getAttribute("data-index");
-    let userData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
+    let DocumentData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
     // Remove that item
-    userData.splice(index, 1);
+    DocumentData.splice(index, 1);
 
-    localStorage.setItem("DocumentData", JSON.stringify(userData));
+    localStorage.setItem("DocumentData", JSON.stringify(DocumentData));
     searchBox.value = "";
     displayData();
     form.reset();
@@ -251,9 +255,9 @@ let searchBox = document.querySelector("#search-box");
 
 searchBox.addEventListener("keyup", function () {
   const searchValue = searchBox.value.toLowerCase();
-  let userData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
+  let DocumentData = JSON.parse(localStorage.getItem("DocumentData")) ?? [];
 
-  let filtered_data = userData
+  let filtered_data = DocumentData
     .map((item, index) => ({ ...item, originalIndex: index }))
     .filter((item) => {
       return (
