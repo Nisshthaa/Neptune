@@ -13,7 +13,9 @@
 
   }
 
-
+body{
+  font-family: "Inter", sans-serif;
+}
 
   .main {
     display: flex;
@@ -25,7 +27,7 @@
   nav {
     width: 20%;
     min-width: 260px;
-    height: 100vh;
+    min-height: 100vh;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -44,37 +46,47 @@
   }
 
   .dropdown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     cursor: pointer;
   }
 
-  .logout-div {
-    position: absolute;
-    display: none;
-    
+ .logout-div {
+  position: absolute;
+  top: 15px; 
+  left: 1px;
+  width: 150px;
+  height: 50px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-family: "Spline Sans";
+  font-weight: 400;
+  color: rgb(244, 124, 124);
+}
+
+    .logout-img{
+width: 18px;
+    height: 28px;
   }
 
-  .btn-logout {
-    width: 100px;
-    height: 32px;
-    font-size: 16px;
-    position: absolute;
-    top: 4px;
-    font-family: "Spline Sans";
-    font-weight: 500;
-    border-radius: 6px;
-    border: 1px solid #6b7280;
-    color: #6b7280;
-    background-color: #FFFFFF;
-    cursor: pointer;
-  }
-
-  .btn-logout:hover {
-    background-color: #366e83;
-    color: #FFFFFF;
+  .logout-div:hover{
+   background-color: rgb(249, 211, 211);
+   color: #ffffff;
+ 
   }
 
   .union-img {
@@ -224,7 +236,8 @@
     min-height: 100vh;
     padding: 30px 60px;
     width: 88%;
-    background-color: #f5f0ea;
+    background-color: #F3F2F1;
+
     display: flex;
     flex-direction: column;
     padding-block: 30px;
@@ -238,7 +251,7 @@
 
   .item-home {
     font-family: "Spline Sans";
-    font-weight: 500;
+    font-weight: 400;
     font-size: 16px;
     color: #436d7c;
   }
@@ -266,6 +279,24 @@
     gap: 16px;
   }
 
+    #add-btn {
+    width: 80px;
+    height: 42px;
+    
+    border-radius: 6px;
+
+    background-color: #FFFFFF;
+   border: none;
+    cursor: pointer;
+   
+  }
+
+  #add-btn:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    padding: 10px 14px;
+  border: none;
+  }
   .crud-btn {
     display: flex;
     justify-content: space-between;
@@ -277,27 +308,28 @@
     gap: 5px;
   }
 
-  #add-btn {
+  .add_btn_form {
     display: flex;
     gap: 2px;
     justify-content: space-evenly;
     align-items: center;
-    width: 100px;
+    width: 80px;
     height: 42px;
     font-size: 16px;
     font-family: "Spline Sans";
-    font-weight: 500;
+    font-weight: 400;
     border-radius: 6px;
-    border: 1px solid #6b7280;
-    color: #6b7280;
-    background-color: #FFFFFF;
+    border: 0.4px solid #a29e9ec5;
+    color: #ffffff;
+    background-color: #5D8AA8;
     cursor: pointer;
 
   }
 
-  #add-btn:hover {
-    background-color: #366e83;
-    color: #FFFFFF;
+  .add_abtn_form:hover {
+   
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
   }
 
   .plus-icon {
@@ -306,7 +338,13 @@
     border-radius: 6px;
     
   }
-
+.add-doc{
+  color:#2a2a2a;
+  font-size: 30px;
+    font-family: "Spline Sans";
+    text-align: center;
+    font-weight: 400;
+}
   .delete-btn {
     display: flex;
     gap: 2px;
@@ -316,12 +354,13 @@
     height: 42px;
     font-size: 16px;
     font-family: "Spline Sans";
-    font-weight: 500;
+    font-weight: 400;
     border-radius: 6px;
-    border: 1px solid #6b7280;
-    color: rgb(244, 124, 124);
+    border: 0.4px solid #a29e9ec5;
+    color: rgb(244, 124, 148);
     background-color: #FFFFFF;
     cursor: pointer;
+    
   }
 
 
@@ -333,12 +372,17 @@
     margin: 0;
     padding: 0;
     line-height: 1;
+    border: none;
   }
 
 
   .delete-btn:hover {
     background-color:rgb(234, 91, 91);
     color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    padding: 10px 14px;
+ 
   }
 
 
@@ -351,44 +395,27 @@
     font-family: "Spline Sans";
     font-weight: 400;
     font-size: 20px;
-    height: 60%;
+    height: 70%;
+    width: 80%;
     gap: 10%;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
-    color: #436d7c;
+    color: #272626c5;
+    
   }
 
   .form_input {
     font-family: "Spline Sans";
     font-weight: 400;
     font-size: 16px;
-    padding: 5px 5px;
+    padding: 10px 5px;
     border: 0.5px solid #b5bdcd;
-    color: #2a2a2a;
+    /* color: #436d7c; */
     background-color: #ffffff;
+    
   }
+ 
 
-  .add_btn_form {
-    display: flex;
-    gap: 2px;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100px;
-    height: 42px;
-    font-size: 16px;
-    font-family: "Spline Sans";
-    font-weight: 500;
-    border-radius: 6px;
-    border: 1px solid #6b7280;
-    color: #6b7280;
-    background-color: #FFFFFF;
-    cursor: pointer;
-  }
-
-  .add_btn_form:hover {
-    background-color: #366e83;
-    color: #FFFFFF;
-  }
 
   #head-1 h1 {
     font-family: "Zin Display";
@@ -407,18 +434,28 @@
     display: flex;
     align-items: center;
     padding: 0 12px;
+    
   }
 
-
+  .searchbox:hover{
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+  }
 
 
   #search-box {
     flex: 1;
-    border: none;
+    border-radius: 8px;
+    border:none;
     outline: none;
     font-size: 14px;
     background: transparent;
+    cursor: pointer;
+    padding: 10px 14px;
+    transition: 0.3s ease;
   }
+
+
 
   .search-logo {
     position: absolute;
@@ -451,7 +488,7 @@
     height: 34px;
     border-radius: 5px;
     border-width: 1px;
-    font-weight: 500;
+    font-weight: 400;
     color: #626d82;
     background-color: #ffffff;
   }
@@ -536,12 +573,17 @@
     color: #626d82;
     background-color: #ffffff;
     font-family: "Inter", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 14px;
     text-align: center;
     padding: 10px;
     cursor: pointer;
   }
+
+.btn-status:hover{
+box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+}
 
   .td-btn-status {
     vertical-align: center;
@@ -555,7 +597,6 @@
   display: none;
   position: fixed;
   inset: 0;
-  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
@@ -568,7 +609,7 @@
     flex-direction: column;
     background-color: #ffffff;
     width: 30%;
-    height: 40%;
+    height: 50%;
     top: 20%;
     left: 40%;
     border-radius: 10px;
@@ -576,11 +617,12 @@
     justify-content: center;
     position: absolute;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border: 0.4px solid #a29e9ec5;
   }
 
   form h1 {
     font-family: "Spline Sans";
-    font-weight: 500;
+    font-weight: 400;
     font-size: 30px;
     color: #436d7c;
   }
@@ -591,13 +633,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
+    width: 130px;
     height: 30px;
     border-radius: 20px;
     font-size: 16px;
     font-family: "Inter", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     padding: 10px 5px;
+    cursor: pointer;
   }
 
   .signNow {
@@ -622,7 +665,7 @@
   .for-pending label {
     font-size: 16px;
     font-family: "Inter";
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .for-pending input,
@@ -636,7 +679,7 @@
 
   .date-text {
     font-family: "Inter", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-style: Medium;
     font-size: 16px;
     color: #626d82;
@@ -646,11 +689,16 @@
     position: relative;
   }
 
+  .settings-icon:hover{
+    background-color:  rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+  }
+
   .settings-div {
     display: none;
     position: absolute;
-    top: 3px;
-    right: 20px;
+    top: 20px;
+    right: 2px;
     background: white;
     border-radius: 6px;
     padding: 3px;
@@ -672,20 +720,13 @@
     height: 32px;
     font-size: 16px;
     font-family: "Spline Sans";
-    font-weight: 500;
+    font-weight: 400;
     border-radius: 6px;
     border: none;
     outline: none;
     background-color: #ffffff;
     color: #2a2a2a;
     cursor: pointer;
-  }
-
-  .edit:hover{
-     
-    background-color:#9cca76;
-    color: #FFFFFF;
-  
   }
  
   .edit-icon {
@@ -703,37 +744,43 @@
     height: 32px;
     font-size: 16px;
     font-family: "Spline Sans";
-    font-weight: 500;
+    font-weight: 400;
     border-radius: 6px;
     border: none;
     background-color: #ffffff;
     color: #ed8c8c;
     cursor: pointer;
   }
- .delete:hover{
-    background-color:rgb(234, 91, 91);
-    color: #FFFFFF;
-  }
 
   .delete-icon {
-
     width: 20px;
     height: 23px;
     border-radius: 6px;
   }
 
+.edit:hover{
+  background-color: #f0efefc5;
+}
+.delete:hover{
+    background-color:#f0efefc5;
 
+}
 
   .waiting {
+
     font-family: "Inter";
-    font-weight: 500;
-    font-style: italic;
-    color: #b5bdcd;
+font-weight: 400;
+font-style: italic;
+font-size: 16px;
+color: #b5bdcd; 
   }
+    
+    
+  
 
   .waiting-person {
     font-family: "Inter";
-    font-weight: 500;
+    font-weight: 400;
     font-style: italic;
     color: #436d7c;
   }
