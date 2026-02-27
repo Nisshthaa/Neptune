@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neptune</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css" />
 </head>
 
@@ -36,8 +36,8 @@
           <div class="dropdown">
             <img id="icon-dropdown" src="./assets/Icon Right.svg" alt="dropdown-icon" />
             <div class="logout-div ">
-              <p class="btn-logout" >Logout  <img class="logout-img" src="./assets/logout.svg" alt="logout"> </p>
-              
+              <p class="btn-logout"><img class="logout-img" src="./assets/logout.svg" alt="logout">Logout </p>
+
             </div>
           </div>
         </div>
@@ -142,13 +142,13 @@
   </div>
   <div id="main-form" class="hidden">
     <!--form-->
-    <form  action="">
+    <form action="">
       <div id="form-div">
         <h2 class="add-doc">Add Document</h2>
         <br>
         <div class="title_div">
           <label class="input-style" for="title_doc">Document title</label>
-          
+
           <input class="input-style form_input" id="title_doc" placeholder="Title of the document" name="title"
             type="text" required />
         </div>
@@ -172,27 +172,26 @@
         </div>
         <br />
         <div>
-           <label class="input-style" for="date_doc">Last Modified</label>
+          <label class="input-style" for="date_doc">Last Modified</label>
           <br />
-          <input class="input-style form_input" id="date_doc" name="date-detail"
-             readonly/>
+          <input class="input-style form_input" id="date_doc" name="date-detail" readonly />
         </div>
         <br>
         <div class="for-pending">
           <label for="waiting_num">Person Waiting</label>
-          <input type="number" id="waiting_num"  value="0" min="0" />
+          <input type="number" id="waiting_num" placeholder="0" min="0" />
         </div>
 
         <br />
         <div class="btn-forms">
           <button type="button" class="delete-btn" id="cancel_btn">
             Cancel
-            
+
 
           </button>
           <button type="submit" class="add_btn_form" id="add_btn_id">
             Add
-            
+
           </button>
         </div>
       </div>

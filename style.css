@@ -13,15 +13,15 @@
 
   }
 
-body{
-  font-family: "Inter", sans-serif;
-}
+  body {
+    font-family: "Inter", sans-serif;
+  }
 
   .main {
     display: flex;
     max-height: 100vh;
     width: 100%;
-    
+
   }
 
   nav {
@@ -50,43 +50,43 @@ body{
     cursor: pointer;
   }
 
- .logout-div {
-  position: absolute;
-  top: 15px; 
-  left: 1px;
-  width: 150px;
-  height: 50px;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 8px 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  z-index: 1000;
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
+  .logout-div {
+    position: absolute;
+    top: 15px;
+    left: 1px;
+    width: 150px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
 
-.btn-logout {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 16px;
-  font-family: "Spline Sans";
-  font-weight: 400;
-  color: rgb(244, 124, 124);
-}
+  .btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    font-family: "Spline Sans";
+    font-weight: 400;
+    color: rgb(244, 124, 124);
+  }
 
-    .logout-img{
-width: 18px;
+  .logout-img {
+    width: 18px;
     height: 28px;
   }
 
-  .logout-div:hover{
-   background-color: rgb(249, 211, 211);
-   color: #ffffff;
- 
+  .logout-div:hover {
+    background-color: rgb(249, 211, 211);
+    color: #ffffff;
+
   }
 
   .union-img {
@@ -279,24 +279,25 @@ width: 18px;
     gap: 16px;
   }
 
-    #add-btn {
+  #add-btn {
     width: 80px;
     height: 42px;
-    
+
     border-radius: 6px;
 
     background-color: #FFFFFF;
-   border: none;
+    border: none;
     cursor: pointer;
-   
+
   }
 
   #add-btn:hover {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     transition: 0.3s ease;
     padding: 10px 14px;
-  border: none;
+    border: none;
   }
+
   .crud-btn {
     display: flex;
     justify-content: space-between;
@@ -327,7 +328,7 @@ width: 18px;
   }
 
   .add_abtn_form:hover {
-   
+
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     transition: 0.3s ease;
   }
@@ -336,15 +337,17 @@ width: 18px;
     width: 13px;
     height: 13px;
     border-radius: 6px;
-    
+
   }
-.add-doc{
-  color:#2a2a2a;
-  font-size: 30px;
+
+  .add-doc {
+    color: #2a2a2a;
+    font-size: 30px;
     font-family: "Spline Sans";
     text-align: center;
     font-weight: 400;
-}
+  }
+
   .delete-btn {
     display: flex;
     gap: 2px;
@@ -360,7 +363,7 @@ width: 18px;
     color: rgb(244, 124, 148);
     background-color: #FFFFFF;
     cursor: pointer;
-    
+
   }
 
 
@@ -368,7 +371,7 @@ width: 18px;
     width: 25px;
     height: 25px;
     border-radius: 6px;
-    background-color:  rgb(244, 124, 124);
+    background-color: rgb(244, 124, 124);
     margin: 0;
     padding: 0;
     line-height: 1;
@@ -377,12 +380,12 @@ width: 18px;
 
 
   .delete-btn:hover {
-    background-color:rgb(234, 91, 91);
+    background-color: rgb(234, 91, 91);
     color: #FFFFFF;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     transition: 0.3s ease;
     padding: 10px 14px;
- 
+
   }
 
 
@@ -401,7 +404,7 @@ width: 18px;
     border-radius: 10px;
     border: none;
     color: #272626c5;
-    
+
   }
 
   .form_input {
@@ -412,9 +415,9 @@ width: 18px;
     border: 0.5px solid #b5bdcd;
     /* color: #436d7c; */
     background-color: #ffffff;
-    
+
   }
- 
+
 
 
   #head-1 h1 {
@@ -434,10 +437,10 @@ width: 18px;
     display: flex;
     align-items: center;
     padding: 0 12px;
-    
+
   }
 
-  .searchbox:hover{
+  .searchbox:hover {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     transition: 0.3s ease;
   }
@@ -446,7 +449,7 @@ width: 18px;
   #search-box {
     flex: 1;
     border-radius: 8px;
-    border:none;
+    border: none;
     outline: none;
     font-size: 14px;
     background: transparent;
@@ -580,10 +583,10 @@ width: 18px;
     cursor: pointer;
   }
 
-.btn-status:hover{
-box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  .btn-status:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     transition: 0.3s ease;
-}
+  }
 
   .td-btn-status {
     vertical-align: center;
@@ -594,13 +597,13 @@ box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   }
 
   #main-form {
-  display: none;
-  position: fixed;
-  inset: 0;
-  justify-content: center;
-  align-items: center;
-}
-  
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
 
 
 
@@ -689,8 +692,8 @@ box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     position: relative;
   }
 
-  .settings-icon:hover{
-    background-color:  rgba(0, 0, 0, 0.06);
+  .settings-icon:hover {
+    background-color: rgba(0, 0, 0, 0.06);
     border-radius: 6px;
   }
 
@@ -728,7 +731,7 @@ box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     color: #2a2a2a;
     cursor: pointer;
   }
- 
+
   .edit-icon {
     width: 20px;
     height: 23px;
@@ -758,25 +761,26 @@ box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
   }
 
-.edit:hover{
-  background-color: #f0efefc5;
-}
-.delete:hover{
-    background-color:#f0efefc5;
+  .edit:hover {
+    background-color: #f0efefc5;
+  }
 
-}
+  .delete:hover {
+    background-color: #f0efefc5;
+
+  }
 
   .waiting {
 
     font-family: "Inter";
-font-weight: 400;
-font-style: italic;
-font-size: 16px;
-color: #b5bdcd; 
+    font-weight: 400;
+    font-style: italic;
+    font-size: 16px;
+    color: #b5bdcd;
   }
-    
-    
-  
+
+
+
 
   .waiting-person {
     font-family: "Inter";

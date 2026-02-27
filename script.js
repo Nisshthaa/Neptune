@@ -22,8 +22,6 @@ if (logout) {
             return;
         logout_div.style.display =
             logout_div.style.display === "flex" ? "none" : "flex";
-        logout_div.style.justifyContent === "center";
-        logout_div.style.alignItems === "center";
     });
 }
 //close when clicking outside
@@ -284,31 +282,6 @@ document.addEventListener("click", function (e) {
             return;
         main.style.filter = "blur(10px)";
         form_data.style.display = "flex";
-    }
-});
-//close edit document when clicked anywhere else
-document.addEventListener("click", function (e) {
-    if (!form_data)
-        return;
-    if (form_data.style.display === "flex") {
-        const formBox = document.getElementById("form-div");
-        if (!formBox || !(e.target instanceof HTMLElement))
-            return;
-        if (!edit_btn)
-            return;
-        if (!formBox.contains(e.target) &&
-            !edit_btn.contains(e.target)) {
-            if (!form || !form_data || !main || !person)
-                return;
-            form.reset();
-            form_data.style.display = "none";
-            main.style.filter = "none";
-            person.style.display = "block";
-            edit_index = null;
-            if (add_doc) {
-                add_doc.textContent = "Add Document";
-            }
-        }
     }
 });
 //delete items

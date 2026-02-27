@@ -25,8 +25,6 @@ if (logout) {
     if (!logout_div) return
     logout_div.style.display =
       logout_div.style.display === "flex" ? "none" : "flex";
-      logout_div.style.justifyContent==="center"
-            logout_div.style.alignItems==="center"
 
   })
 }
@@ -153,12 +151,12 @@ if (form) {
     const title = title_doc.value
     const status = statusSelect.value;
     const waitingPersons = waitingInput.value;
-    let waitingValue:string|null=null;
-    if(status==="Pending"){
-      if (!waitingPersons.trim()) return; 
-  waitingValue = waitingPersons;
+    let waitingValue: string | null = null;
+    if (status === "Pending") {
+      if (!waitingPersons.trim()) return;
+      waitingValue = waitingPersons;
     }
-    
+
 
     const DocumentData: DocumentItem[] = getdata()
 
@@ -191,9 +189,9 @@ if (form) {
     if (add_doc) {
       add_doc.textContent = "Add Document";
     }
-     if (!searchBox) return
+    if (!searchBox) return
     searchBox.value = "";
-    
+
 
   });
 
@@ -322,29 +320,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-//close edit document when clicked anywhere else
-document.addEventListener("click", function (e) {
-  if (!form_data) return
-  if (form_data.style.display === "flex") {
-    const formBox = document.getElementById("form-div");
-
-    if (!formBox || !(e.target instanceof HTMLElement)) return
-    if (!edit_btn) return;
-    if (!formBox.contains(e.target) &&
-      !edit_btn.contains(e.target)
-    ) {
-      if (!form || !form_data || !main || !person) return
-      form.reset()
-      form_data.style.display = "none";
-      main.style.filter = "none";
-      person.style.display = "block";
-      edit_index = null;
-      if (add_doc) {
-        add_doc.textContent = "Add Document";
-      }
-      
-  }
-}});
 
 //delete items
 
