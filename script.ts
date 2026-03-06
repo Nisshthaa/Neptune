@@ -13,7 +13,6 @@ let edit_index: number | null = null;
 const title_doc = document.querySelector<HTMLInputElement>("#title_doc");
 const date_doc = document.querySelector<HTMLInputElement>("#date_doc")
 const searchBox = document.querySelector<HTMLInputElement>("#search-box");
-const edit_btn = document.querySelector<HTMLButtonElement>(".edit");
 const add_doc = document.querySelector<HTMLHeadingElement>(".add-doc")
 
 
@@ -30,7 +29,7 @@ if (logout) {
 }
 
 
-//close when clicking outside
+//close logout button when clicking outside
 document.addEventListener("click", function (e) {
   // If form is open
   if (!logout_div) return
@@ -45,7 +44,7 @@ document.addEventListener("click", function (e) {
 });
 
 
-//add button
+//form open using add button
 if (add_btn) {
   add_btn.addEventListener("click", function (e) {
 
@@ -59,7 +58,7 @@ if (add_btn) {
 
 }
 
-//close edit form
+//close form when click anywhere
 document.addEventListener("click", function (e) {
   if (!form_data) return;
   if (form_data.style.display !== "flex") return;
@@ -88,7 +87,8 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// cancel-button
+
+//  remove form using cancel-button
 
 if (cancel_btn) {
   cancel_btn.addEventListener("click", function () {
@@ -102,11 +102,12 @@ if (cancel_btn) {
 
     add_doc.textContent = "Add Document";
 
+
   });
 }
 
-//pending persons
-// hide initially
+//pending persons (hide initially)
+
 if (person) {
   person.style.display = "none";
   if (statusSelect) {
@@ -120,6 +121,7 @@ if (person) {
   }
 
 }
+
 
 //interface creation
 interface DocumentItem {
@@ -137,7 +139,7 @@ function getdata(): DocumentItem[] {
   return storedData ? JSON.parse(storedData) : [];
 }
 
-//set item
+//set item in localstorage
 function setdata(data: DocumentItem[]): void {
   localStorage.setItem("DocumentData", JSON.stringify(data));
 
@@ -153,8 +155,8 @@ if (form) {
     const waitingPersons = waitingInput.value;
     let waitingValue: string | null = null;
     if (status === "Pending") {
-  waitingValue = waitingPersons.trim() || "0";
-}
+      waitingValue = waitingPersons.trim() || "0";
+    }
 
 
     const DocumentData: DocumentItem[] = getdata()
@@ -257,6 +259,8 @@ const displayData = (data?: DocumentItem[]) => {
 
 displayData();
 
+
+//open settings when clicked
 document.addEventListener("click", function (e) {
   if (!(e.target instanceof HTMLElement)) return;
 
@@ -275,7 +279,7 @@ document.addEventListener("click", function (e) {
     document.querySelectorAll<HTMLDivElement>(".settings-div")
       .forEach(m => m.style.display = "none");
 
-    
+
     if (!isOpen) {
       menu.style.display = "flex";
     }
@@ -286,7 +290,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
-//edit items
+//edit data clicking edit button
 
 document.addEventListener("click", function (e) {
   if (!(e.target instanceof HTMLElement)) return
@@ -319,13 +323,11 @@ document.addEventListener("click", function (e) {
     main.style.filter = "blur(10px)";
     form_data.style.display = "flex";
 
-
-
   }
 });
 
 
-//delete items
+//delete data
 
 document.addEventListener("click", function (e) {
   if (!(e.target instanceof HTMLElement)) return;
