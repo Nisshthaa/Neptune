@@ -474,11 +474,7 @@
     opacity: 0.6;
   }
 
-  .settings {
-    position: relative;
-    top: 5px;
 
-  }
 
   .status_btn {
     width: 139px;
@@ -519,6 +515,7 @@
   .table-wrapper {
     flex: 1;
     overflow-y: auto;
+   
 
   }
 
@@ -528,7 +525,7 @@
     width: 100%;
     border-width: 0.5px;
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     background-color: #ffffff;
     border: 0.5px solid #b5bdcd;
@@ -693,6 +690,11 @@
     color: #626d82;
   }
 
+    .settings {
+    position: relative;
+    top: 5px;
+
+  }
   .settings-wrapper {
     position: relative;
   }
@@ -705,15 +707,15 @@
   .settings-div {
     display: none;
     position: absolute;
-    top: 20px;
-    right: 2px;
+    top: 30px;
+    right: 0px;
     background: white;
     border-radius: 6px;
     padding: 3px;
     gap: 2px;
     border: 1px solid #ddd;
     flex-direction: column;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .settings-icon {

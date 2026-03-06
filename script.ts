@@ -153,9 +153,8 @@ if (form) {
     const waitingPersons = waitingInput.value;
     let waitingValue: string | null = null;
     if (status === "Pending") {
-      if (!waitingPersons.trim()) return;
-      waitingValue = waitingPersons;
-    }
+  waitingValue = waitingPersons.trim() || "0";
+}
 
 
     const DocumentData: DocumentItem[] = getdata()
@@ -258,29 +257,34 @@ const displayData = (data?: DocumentItem[]) => {
 
 displayData();
 
-//open settings
 document.addEventListener("click", function (e) {
   if (!(e.target instanceof HTMLElement)) return;
 
   const settingsIcon = e.target.closest(".settings-icon");
 
   if (settingsIcon) {
-    document.querySelectorAll<HTMLDivElement>(".settings-div")
-      .forEach(menu => menu.style.display = "none");
-
     const wrapper = settingsIcon.closest(".settings-wrapper");
     if (!wrapper) return;
 
     const menu = wrapper.querySelector<HTMLDivElement>(".settings-div");
     if (!menu) return;
 
-    menu.style.display = "flex";
+    const isOpen = menu.style.display === "flex";
+
+    // close all menus
+    document.querySelectorAll<HTMLDivElement>(".settings-div")
+      .forEach(m => m.style.display = "none");
+
+    
+    if (!isOpen) {
+      menu.style.display = "flex";
+    }
+
   } else {
     document.querySelectorAll<HTMLDivElement>(".settings-div")
       .forEach(menu => menu.style.display = "none");
   }
 });
-
 
 //edit items
 
