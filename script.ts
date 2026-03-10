@@ -57,11 +57,12 @@ if (logout) {
 }
 
 
-// close logout button when clicking outside
+
 document.addEventListener("click", function (e) {
 
   if (!(e.target instanceof HTMLElement)) return;
 
+  // close logout button when clicking outside
   if (!logout_div) return;
 
   if (logout_div.style.display === "flex") {
