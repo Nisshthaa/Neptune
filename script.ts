@@ -51,7 +51,6 @@ function setdata(data: DocumentItem[]): void {
 if (logout) {
   logout.addEventListener("click", function () {
     if (!logout_div) return;
-
     logout_div.style.display =
       logout_div.style.display === "flex" ? "none" : "flex";
   });
@@ -368,12 +367,12 @@ const displayData = (data?: DocumentItem[]) => {
           </div>
 
           <div class="settings-div">
-            <button class="edit" data-index="${element.originalIndex || i}">
+            <button class="edit" data-index="${element.originalIndex ?? i}">
               Edit
               <img src="./assets/edit.svg" class="edit-icon" alt="">
             </button>
 
-            <button class="delete" data-index="${element.originalIndex || i}">
+            <button class="delete" data-index="${element.originalIndex ?? i}">
               Delete
               <img src="./assets/delete.svg" class="delete-icon">
             </button>
