@@ -18,6 +18,34 @@ const searchBox = document.querySelector<HTMLInputElement>("#search-box");
 const add_doc = document.querySelector<HTMLHeadingElement>(".add-doc");
 
 
+
+// interface creation
+interface DocumentItem {
+
+  title: string;
+  status: string;
+  waiting: string | null;
+  date: string;
+  time: string;
+  originalIndex?: number;
+}
+
+
+// get data from local storage
+function getdata(): DocumentItem[] {
+
+  const storedData = localStorage.getItem("DocumentData");
+  return storedData ? JSON.parse(storedData) : [];
+}
+
+
+// set item in localstorage
+function setdata(data: DocumentItem[]): void {
+
+  localStorage.setItem("DocumentData", JSON.stringify(data));
+}
+
+
 // logout dropdown logic
 if (logout) {
   logout.addEventListener("click", function () {
@@ -222,32 +250,6 @@ if (person) {
   }
 }
 
-
-// interface creation
-interface DocumentItem {
-
-  title: string;
-  status: string;
-  waiting: string | null;
-  date: string;
-  time: string;
-  originalIndex?: number;
-}
-
-
-// get data from local storage
-function getdata(): DocumentItem[] {
-
-  const storedData = localStorage.getItem("DocumentData");
-  return storedData ? JSON.parse(storedData) : [];
-}
-
-
-// set item in localstorage
-function setdata(data: DocumentItem[]): void {
-
-  localStorage.setItem("DocumentData", JSON.stringify(data));
-}
 
 
 // form submission
