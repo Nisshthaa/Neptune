@@ -19,9 +19,9 @@ const add_doc = document.querySelector<HTMLHeadingElement>(".add-doc");
 
 
 
-// interface creation
-interface DocumentItem {
+//interface
 
+interface DocumentItem {
   title: string;
   status: string;
   waiting: string | null;
@@ -31,22 +31,23 @@ interface DocumentItem {
 }
 
 
-// get data from local storage
-function getdata(): DocumentItem[] {
 
+//get data from local storage
+function getdata(): DocumentItem[] {
   const storedData = localStorage.getItem("DocumentData");
   return storedData ? JSON.parse(storedData) : [];
 }
 
+//set data to local storage
 
-// set item in localstorage
 function setdata(data: DocumentItem[]): void {
-
   localStorage.setItem("DocumentData", JSON.stringify(data));
 }
 
 
-// logout dropdown logic
+
+//logout dropdown
+
 if (logout) {
   logout.addEventListener("click", function () {
     if (!logout_div) return;
@@ -58,16 +59,16 @@ if (logout) {
 
 
 
-document.addEventListener("click", function (e) {
 
+document.addEventListener("click", function (e) {
   if (!(e.target instanceof HTMLElement)) return;
 
-  // close logout button when clicking outside
+
+
+  //close logout
   if (!logout_div) return;
 
   if (logout_div.style.display === "flex") {
-
-    if (!(e.target instanceof HTMLElement)) return;
     if (!logout) return;
 
     if (!logout_div.contains(e.target) && !logout.contains(e.target)) {
@@ -76,9 +77,9 @@ document.addEventListener("click", function (e) {
   }
 
 
-  // close form when click anywhere
-  if (form_data && form_data.style.display === "flex") {
 
+  //form close
+  if (form_data && form_data.style.display === "flex") {
     const formBox = document.getElementById("form-div");
     if (!formBox) return;
 
@@ -90,7 +91,6 @@ document.addEventListener("click", function (e) {
       !clickedEditButton &&
       !clickedAddButton
     ) {
-
       if (!form || !main || !person || !add_doc) return;
 
       form.reset();
@@ -103,11 +103,12 @@ document.addEventListener("click", function (e) {
   }
 
 
-  // open settings when clicked
+
+  //settings menu 
+
   const settingsIcon = e.target.closest(".settings-icon");
 
   if (settingsIcon) {
-
     const wrapper = settingsIcon.closest(".settings-wrapper");
     if (!wrapper) return;
 
@@ -118,50 +119,50 @@ document.addEventListener("click", function (e) {
 
     document
       .querySelectorAll<HTMLDivElement>(".settings-div")
-      .forEach(m => m.style.display = "none");
+      .forEach(m => (m.style.display = "none"));
 
     if (!isOpen) {
       menu.style.display = "flex";
     }
-
   } else {
-
     document
       .querySelectorAll<HTMLDivElement>(".settings-div")
-      .forEach(menu => menu.style.display = "none");
+      .forEach(menu => (menu.style.display = "none"));
   }
 
 
-  // delete data
-  if (e.target.closest(".delete")) {
 
-    const indexStr = e.target.getAttribute("data-index");
-    const DocumentData = getdata();
+  //delete document
+
+  const deleteBtn = e.target.closest(".delete");
+
+  if (deleteBtn) {
+    const indexStr = deleteBtn.getAttribute("data-index");
+    if (!indexStr) return;
 
     const index = Number(indexStr);
-    DocumentData.splice(index, 1);
+    const DocumentData = getdata();
 
+    DocumentData.splice(index, 1);
     setdata(DocumentData);
 
-    if (!searchBox) return;
+    if (searchBox) searchBox.value = "";
 
-    searchBox.value = "";
     displayData();
 
-    if (form) {
-      form.reset();
-    }
+    if (form) form.reset();
   }
 
 
-  // edit data
-  if (e.target.closest(".edit")) {
 
-    if (add_doc) {
-      add_doc.textContent = "Edit Document";
-    }
+  //edit button
 
-    const indexStr = e.target.getAttribute("data-index");
+  const editBtn = e.target.closest(".edit");
+
+  if (editBtn) {
+    if (add_doc) add_doc.textContent = "Edit Document";
+
+    const indexStr = editBtn.getAttribute("data-index");
     if (!indexStr) return;
 
     const index = Number(indexStr);
@@ -178,12 +179,9 @@ document.addEventListener("click", function (e) {
     if (statusSelect) statusSelect.value = item.status;
 
     if (item.status === "Pending") {
-
       if (person) person.style.display = "block";
       if (waitingInput) waitingInput.value = item.waiting ?? "";
-
     } else {
-
       if (person) person.style.display = "none";
       if (waitingInput) waitingInput.value = "";
     }
@@ -198,34 +196,35 @@ document.addEventListener("click", function (e) {
 });
 
 
-// form open using add button
+
+//add button
+
 if (add_btn) {
-
   add_btn.addEventListener("click", function () {
-
     if (!main || !form_data || !date_doc) return;
 
     main.style.filter = "blur(5px)";
     form_data.style.display = "flex";
-
     date_doc.value = new Date().toLocaleString();
   });
 }
 
 
-// remove form using cancel-button
+
+//cancel button
+
 if (cancel_btn) {
-
   cancel_btn.addEventListener("click", function () {
-
-    if (!form || !form_data || !main || !person || !waitingInput || !add_doc) return;
+    if (!form || !form_data || !main || !person || !waitingInput || !add_doc)
+      return;
 
     form.reset();
+
     form_data.style.display = "none";
     main.style.filter = "none";
     person.style.display = "none";
-    waitingInput.value = "";
 
+    waitingInput.value = "";
     edit_index = null;
 
     add_doc.textContent = "Add Document";
@@ -233,15 +232,13 @@ if (cancel_btn) {
 }
 
 
-// pending persons (hide initially)
-if (person) {
 
+//status change
+if (person) {
   person.style.display = "none";
 
   if (statusSelect) {
-
     statusSelect.addEventListener("change", function () {
-
       if (statusSelect.value === "Pending") {
         person.style.display = "block";
       } else {
@@ -253,11 +250,10 @@ if (person) {
 
 
 
-// form submission
+//form submission
+
 if (form) {
-
   form.addEventListener("submit", function (e) {
-
     e.preventDefault();
 
     if (
@@ -265,7 +261,8 @@ if (form) {
       !title_doc ||
       !statusSelect ||
       !waitingInput
-    ) return;
+    )
+      return;
 
     const title = title_doc.value;
     const status = statusSelect.value;
@@ -284,7 +281,7 @@ if (form) {
       status,
       waiting: waitingValue,
       date: new Date().toLocaleDateString(),
-      time: new Date().toLocaleTimeString()
+      time: new Date().toLocaleTimeString(),
     };
 
     if (edit_index != null) {
@@ -294,7 +291,6 @@ if (form) {
     }
 
     setdata(DocumentData);
-
     displayData();
 
     form.reset();
@@ -310,15 +306,14 @@ if (form) {
     add_doc.textContent = "Add Document";
 
     if (!searchBox) return;
-
     searchBox.value = "";
   });
 }
 
 
-// display items from local storage
-const displayData = (data?: DocumentItem[]) => {
+//display data
 
+const displayData = (data?: DocumentItem[]) => {
   const DocumentData = data ?? getdata();
 
   let finalData = "";
@@ -326,35 +321,29 @@ const displayData = (data?: DocumentItem[]) => {
   let btn_class = "";
 
   DocumentData.forEach((element, i) => {
-
     let waitingText = "";
 
     if (element.status === "Needs Signing") {
-
       button = "Sign Now";
       btn_class = "signNow";
-
     } else if (element.status === "Pending") {
-
       button = "Preview";
       btn_class = "pending";
 
-      waitingText =
-        `<p class="waiting">Waiting for 
-        <span class="waiting-person">${element.waiting} persons</span>
-        </p>`;
-
+      waitingText = `
+        <p class="waiting">
+          Waiting for 
+          <span class="waiting-person">${element.waiting} persons</span>
+        </p>
+      `;
     } else {
-
       button = "Download PDF";
       btn_class = "completed";
     }
 
     finalData += `
       <tr>
-        <td>
-          <input type="checkbox">
-        </td>
+        <td><input type="checkbox"></td>
 
         <td class="td-items">${element.title}</td>
 
@@ -368,9 +357,7 @@ const displayData = (data?: DocumentItem[]) => {
         </td>
 
         <td class="settings-wrapper">
-
           <div class="td-wrapper">
-
             <button class="btn-status">${button}</button>
 
             <img
@@ -378,11 +365,9 @@ const displayData = (data?: DocumentItem[]) => {
               alt="settings"
               class="settings-icon"
             >
-
           </div>
 
           <div class="settings-div">
-
             <button class="edit" data-index="${element.originalIndex || i}">
               Edit
               <img src="./assets/edit.svg" class="edit-icon" alt="">
@@ -392,27 +377,23 @@ const displayData = (data?: DocumentItem[]) => {
               Delete
               <img src="./assets/delete.svg" class="delete-icon">
             </button>
-
           </div>
-
         </td>
       </tr>
     `;
   });
 
   if (!tbody) return;
-
   tbody.innerHTML = finalData;
 };
 
 displayData();
 
 
-// searchbar functionality
+//search functionality
+
 if (searchBox) {
-
   searchBox.addEventListener("keyup", function () {
-
     const searchValue = searchBox.value.toLowerCase();
 
     const DocumentData = getdata();
@@ -420,7 +401,6 @@ if (searchBox) {
     const filtered_data = DocumentData
       .map((item, index) => ({ ...item, originalIndex: index }))
       .filter((item) => {
-
         return (
           item.title.toLowerCase().includes(searchValue) ||
           item.status.toLowerCase().includes(searchValue)
