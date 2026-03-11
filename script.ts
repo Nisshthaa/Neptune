@@ -9,7 +9,6 @@ const form = document.querySelector<HTMLFormElement>("form");
 const waitingInput = document.querySelector<HTMLInputElement>("#waiting_num");
 const person = document.querySelector<HTMLDivElement>(".for-pending");
 const statusSelect = document.querySelector<HTMLSelectElement>("#status_id");
-
 let edit_index: number | null = null;
 
 const title_doc = document.querySelector<HTMLInputElement>("#title_doc");

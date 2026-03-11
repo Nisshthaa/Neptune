@@ -14,7 +14,16 @@ const title_doc = document.querySelector("#title_doc");
 const date_doc = document.querySelector("#date_doc");
 const searchBox = document.querySelector("#search-box");
 const add_doc = document.querySelector(".add-doc");
-// logout dropdown logic
+//get data from local storage
+function getdata() {
+    const storedData = localStorage.getItem("DocumentData");
+    return storedData ? JSON.parse(storedData) : [];
+}
+//set data to local storage
+function setdata(data) {
+    localStorage.setItem("DocumentData", JSON.stringify(data));
+}
+//logout dropdown
 if (logout) {
     logout.addEventListener("click", function () {
         if (!logout_div)
@@ -23,23 +32,21 @@ if (logout) {
             logout_div.style.display === "flex" ? "none" : "flex";
     });
 }
-// close logout button when clicking outside
 document.addEventListener("click", function (e) {
     var _a;
     if (!(e.target instanceof HTMLElement))
         return;
+    //close logout
     if (!logout_div)
         return;
     if (logout_div.style.display === "flex") {
-        if (!(e.target instanceof HTMLElement))
-            return;
         if (!logout)
             return;
         if (!logout_div.contains(e.target) && !logout.contains(e.target)) {
             logout_div.style.display = "none";
         }
     }
-    // close form when click anywhere
+    //form close
     if (form_data && form_data.style.display === "flex") {
         const formBox = document.getElementById("form-div");
         if (!formBox)
@@ -59,7 +66,7 @@ document.addEventListener("click", function (e) {
             add_doc.textContent = "Add Document";
         }
     }
-    // open settings when clicked
+    //settings menu 
     const settingsIcon = e.target.closest(".settings-icon");
     if (settingsIcon) {
         const wrapper = settingsIcon.closest(".settings-wrapper");
@@ -71,7 +78,7 @@ document.addEventListener("click", function (e) {
         const isOpen = menu.style.display === "flex";
         document
             .querySelectorAll(".settings-div")
-            .forEach(m => m.style.display = "none");
+            .forEach(m => (m.style.display = "none"));
         if (!isOpen) {
             menu.style.display = "flex";
         }
@@ -79,29 +86,30 @@ document.addEventListener("click", function (e) {
     else {
         document
             .querySelectorAll(".settings-div")
-            .forEach(menu => menu.style.display = "none");
+            .forEach(menu => (menu.style.display = "none"));
     }
-    // delete data
-    if (e.target.closest(".delete")) {
-        const indexStr = e.target.getAttribute("data-index");
-        const DocumentData = getdata();
+    //delete document
+    const deleteBtn = e.target.closest(".delete");
+    if (deleteBtn) {
+        const indexStr = deleteBtn.getAttribute("data-index");
+        if (!indexStr)
+            return;
         const index = Number(indexStr);
+        const DocumentData = getdata();
         DocumentData.splice(index, 1);
         setdata(DocumentData);
-        if (!searchBox)
-            return;
-        searchBox.value = "";
+        if (searchBox)
+            searchBox.value = "";
         displayData();
-        if (form) {
+        if (form)
             form.reset();
-        }
     }
-    // edit data
-    if (e.target.closest(".edit")) {
-        if (add_doc) {
+    //edit button
+    const editBtn = e.target.closest(".edit");
+    if (editBtn) {
+        if (add_doc)
             add_doc.textContent = "Edit Document";
-        }
-        const indexStr = e.target.getAttribute("data-index");
+        const indexStr = editBtn.getAttribute("data-index");
         if (!indexStr)
             return;
         const index = Number(indexStr);
@@ -135,7 +143,7 @@ document.addEventListener("click", function (e) {
         form_data.style.display = "flex";
     }
 });
-// form open using add button
+//add button
 if (add_btn) {
     add_btn.addEventListener("click", function () {
         if (!main || !form_data || !date_doc)
@@ -145,7 +153,7 @@ if (add_btn) {
         date_doc.value = new Date().toLocaleString();
     });
 }
-// remove form using cancel-button
+//cancel button
 if (cancel_btn) {
     cancel_btn.addEventListener("click", function () {
         if (!form || !form_data || !main || !person || !waitingInput || !add_doc)
@@ -159,7 +167,7 @@ if (cancel_btn) {
         add_doc.textContent = "Add Document";
     });
 }
-// pending persons (hide initially)
+//status change
 if (person) {
     person.style.display = "none";
     if (statusSelect) {
@@ -173,16 +181,7 @@ if (person) {
         });
     }
 }
-// get data from local storage
-function getdata() {
-    const storedData = localStorage.getItem("DocumentData");
-    return storedData ? JSON.parse(storedData) : [];
-}
-// set item in localstorage
-function setdata(data) {
-    localStorage.setItem("DocumentData", JSON.stringify(data));
-}
-// form submission
+//form submission
 if (form) {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -204,7 +203,7 @@ if (form) {
             status,
             waiting: waitingValue,
             date: new Date().toLocaleDateString(),
-            time: new Date().toLocaleTimeString()
+            time: new Date().toLocaleTimeString(),
         };
         if (edit_index != null) {
             DocumentData[edit_index] = newItem;
@@ -227,13 +226,14 @@ if (form) {
         searchBox.value = "";
     });
 }
-// display items from local storage
+//display data
 const displayData = (data) => {
     const DocumentData = data !== null && data !== void 0 ? data : getdata();
     let finalData = "";
     let button = "";
     let btn_class = "";
     DocumentData.forEach((element, i) => {
+        var _a, _b;
         let waitingText = "";
         if (element.status === "Needs Signing") {
             button = "Sign Now";
@@ -242,10 +242,12 @@ const displayData = (data) => {
         else if (element.status === "Pending") {
             button = "Preview";
             btn_class = "pending";
-            waitingText =
-                `<p class="waiting">Waiting for 
-        <span class="waiting-person">${element.waiting} persons</span>
-        </p>`;
+            waitingText = `
+        <p class="waiting">
+          Waiting for 
+          <span class="waiting-person">${element.waiting} persons</span>
+        </p>
+      `;
         }
         else {
             button = "Download PDF";
@@ -253,9 +255,7 @@ const displayData = (data) => {
         }
         finalData += `
       <tr>
-        <td>
-          <input type="checkbox">
-        </td>
+        <td><input type="checkbox"></td>
 
         <td class="td-items">${element.title}</td>
 
@@ -269,9 +269,7 @@ const displayData = (data) => {
         </td>
 
         <td class="settings-wrapper">
-
           <div class="td-wrapper">
-
             <button class="btn-status">${button}</button>
 
             <img
@@ -279,23 +277,19 @@ const displayData = (data) => {
               alt="settings"
               class="settings-icon"
             >
-
           </div>
 
           <div class="settings-div">
-
-            <button class="edit" data-index="${element.originalIndex || i}">
+            <button class="edit" data-index="${(_a = element.originalIndex) !== null && _a !== void 0 ? _a : i}">
               Edit
               <img src="./assets/edit.svg" class="edit-icon" alt="">
             </button>
 
-            <button class="delete" data-index="${element.originalIndex || i}">
+            <button class="delete" data-index="${(_b = element.originalIndex) !== null && _b !== void 0 ? _b : i}">
               Delete
               <img src="./assets/delete.svg" class="delete-icon">
             </button>
-
           </div>
-
         </td>
       </tr>
     `;
@@ -305,7 +299,7 @@ const displayData = (data) => {
     tbody.innerHTML = finalData;
 };
 displayData();
-// searchbar functionality
+//search functionality
 if (searchBox) {
     searchBox.addEventListener("keyup", function () {
         const searchValue = searchBox.value.toLowerCase();
